@@ -10,6 +10,9 @@ class Settings(BaseSettings):
     llm_model_name: str = "tiiuae/Falcon-H1-7B-Instruct"
 
     # Qdrant
+    # qdrant_path: use embedded mode (no server needed, good for Docker-in-Docker)
+    # leave empty "" to use host/port server mode
+    qdrant_path: str = "/workspace/qdrant_storage"
     qdrant_host: str = "localhost"
     qdrant_port: int = 6333
     qdrant_collection: str = "menu_ar"

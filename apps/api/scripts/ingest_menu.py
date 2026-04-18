@@ -38,13 +38,15 @@ def main() -> None:
     menu_path = repo_root / "data" / "menu.json"
 
     # Allow override via config if available
+    qdrant_path = "/workspace/qdrant_storage"
     try:
         from apps.api.config import settings  # noqa: PLC0415
+        qdrant_path = settings.qdrant_path
         qdrant_host = settings.qdrant_host
         qdrant_port = settings.qdrant_port
         collection = settings.qdrant_collection
         embedding_model = settings.embedding_model
-        menu_path = Path(settings.menu_json_path) if not Path(settings.menu_json_path).is_absolute() else Path(settings.menu_json_path)
+        menu_path = Path(settings.menu_json_path)
         if not menu_path.is_absolute():
             menu_path = repo_root / settings.menu_json_path
     except Exception:
@@ -61,8 +63,12 @@ def main() -> None:
     print(f"Loading embedding model: {embedding_model}")
     model = SentenceTransformer(embedding_model)
 
-    print(f"Connecting to Qdrant at {qdrant_host}:{qdrant_port}")
-    client = QdrantClient(host=qdrant_host, port=qdrant_port)
+    if qdrant_path:
+        print(f"Using Qdrant embedded mode at: {qdrant_path}")
+        client = QdrantClient(path=qdrant_path)
+    else:
+        print(f"Connecting to Qdrant server at {qdrant_host}:{qdrant_port}")
+        client = QdrantClient(host=qdrant_host, port=qdrant_port)
 
     print(f"Recreating collection '{collection}' (vector size={VECTOR_SIZE})")
     client.recreate_collection(

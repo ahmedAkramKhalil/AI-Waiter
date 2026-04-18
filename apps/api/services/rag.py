@@ -21,7 +21,12 @@ def get_embedder() -> SentenceTransformer:
 def get_qdrant() -> QdrantClient:
     global _qdrant
     if _qdrant is None:
-        _qdrant = QdrantClient(host=settings.qdrant_host, port=settings.qdrant_port)
+        if settings.qdrant_path:
+            # Embedded mode — runs in-process, no Docker needed
+            _qdrant = QdrantClient(path=settings.qdrant_path)
+        else:
+            # Server mode — requires a running Qdrant server
+            _qdrant = QdrantClient(host=settings.qdrant_host, port=settings.qdrant_port)
     return _qdrant
 
 
