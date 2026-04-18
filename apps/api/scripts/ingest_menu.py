@@ -60,8 +60,8 @@ def main() -> None:
         meals: list[dict] = json.load(f)
     print(f"  → {len(meals)} meals loaded")
 
-    print(f"Loading embedding model: {embedding_model}")
-    model = SentenceTransformer(embedding_model)
+    print(f"Loading embedding model: {embedding_model} (CPU)")
+    model = SentenceTransformer(embedding_model, device="cpu")
 
     if qdrant_path:
         print(f"Using Qdrant embedded mode at: {qdrant_path}")
