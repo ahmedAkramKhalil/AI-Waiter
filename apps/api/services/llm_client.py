@@ -27,9 +27,6 @@ def _build_payload(messages: list[dict], stream: bool = False) -> dict:
         "stream": stream,
     }
 
-    # Use JSON mode for all backends — widely supported
-    payload["response_format"] = {"type": "json_object"}
-
     return payload
 
 
@@ -37,7 +34,7 @@ async def call_llm(messages: list[dict]) -> LLMResponse:
     """Non-streaming call — used inside the tool-calling loop."""
     payload = _build_payload(messages, stream=False)
 
-    async with httpx.AsyncClient(timeout=120.0) as client:
+    async with httpx.AsyncClient(timeout=300.0) as client:
         resp = await client.post(
             f"{settings.llm_api_base}/chat/completions",
             json=payload,
