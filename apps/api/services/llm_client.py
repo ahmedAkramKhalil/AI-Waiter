@@ -23,18 +23,12 @@ def _build_payload(messages: list[dict], stream: bool = False) -> dict:
         "model": settings.llm_model_name,
         "messages": messages,
         "temperature": 0.7,
-        "max_tokens": 1024,
+        "max_tokens": 512,   # tool-loop calls need short JSON only
         "stream": stream,
     }
 
-    if settings.llm_backend == "vllm":
-        payload["extra_body"] = {
-            "guided_json": LLM_RESPONSE_SCHEMA,
-            "guided_decoding_backend": "outlines",
-        }
-    else:
-        # Ollama / any OpenAI-compatible backend
-        payload["response_format"] = {"type": "json_object"}
+    # Use JSON mode for all backends — widely supported
+    payload["response_format"] = {"type": "json_object"}
 
     return payload
 
