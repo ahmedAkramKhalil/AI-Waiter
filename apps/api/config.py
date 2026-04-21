@@ -1,18 +1,24 @@
+from pathlib import Path
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+# Always resolve .env relative to this file (apps/api/.env)
+_ENV_FILE = Path(__file__).parent / ".env"
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    model_config = SettingsConfigDict(env_file=str(_ENV_FILE), extra="ignore")
 
-    # vLLM — localhost when everything runs on the same pod
-    runpod_api_base: str = "http://localhost:8001/v1"
-    runpod_api_key: str = "local"
-    llm_model_name: str = "tiiuae/Falcon-H1-7B-Instruct"
+    # LLM backend: "ollama" (local Mac) or "vllm" (RunPod)
+    llm_backend: str = "ollama"
+    llm_api_base: str = "http://localhost:11434/v1"
+    llm_api_key: str = "ollama"
+    llm_model_name: str = "qwen2.5:7b"
 
     # Qdrant
     # qdrant_path: use embedded mode (no server needed, good for Docker-in-Docker)
     # leave empty "" to use host/port server mode
-    qdrant_path: str = "/workspace/qdrant_storage"
+    qdrant_path: str = "qdrant_storage"
     qdrant_host: str = "localhost"
     qdrant_port: int = 6333
     qdrant_collection: str = "menu_ar"
