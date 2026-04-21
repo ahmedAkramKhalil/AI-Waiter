@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #1a0308;
+}
+
+body {
+  font-family: 'Tajawal', 'Cairo', system-ui, sans-serif;
+  color: #fdf6ec;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior-y: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d9a83a 0%, #8a6210 100%);
+  border-radius: 999px;
+}
+
+/* Glossy glass card */
+@layer components {
+  .glass {
+    @apply bg-glass backdrop-blur-xl border border-white/10 shadow-glossy;
+  }
+  .glass-gold {
+    @apply bg-glass-gold backdrop-blur-xl border border-gold-300/30 shadow-gold;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs
+           bg-white/10 border border-white/15 backdrop-blur-md;
+  }
+  .btn-gold {
+    @apply relative overflow-hidden rounded-2xl px-5 py-3 font-bold
+           text-wine-900 shadow-gold
+           bg-gradient-to-b from-gold-200 via-gold-300 to-gold-400
+           active:translate-y-[1px] transition-transform;
+  }
+  .btn-ghost {
+    @apply rounded-2xl px-5 py-3 font-semibold text-cream/90
+           bg-white/5 border border-white/10 backdrop-blur-md
+           hover:bg-white/10 transition-colors;
+  }
+}
+
+/* Glossy sheen overlay for buttons/cards */
+.sheen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    125deg,
+    transparent 30%,
+    rgba(255,255,255,0.35) 50%,
+    transparent 70%
+  );
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  animation: shimmer 6s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+/* Subtle animated ambient gradient */
+.ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(600px 400px at 20% 10%, rgba(242,206,96,0.18), transparent 60%),
+    radial-gradient(500px 600px at 85% 90%, rgba(168, 76, 93, 0.28), transparent 60%),
+    radial-gradient(900px 700px at 50% 50%, rgba(110,31,48,0.45), transparent 65%);
+  z-index: 0;
+}

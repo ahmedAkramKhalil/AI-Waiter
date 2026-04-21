@@ -13,8 +13,8 @@ _qdrant: QdrantClient | None = None
 def get_embedder() -> SentenceTransformer:
     global _embedder
     if _embedder is None:
-        # Force CPU — GPU is reserved for the LLM (vLLM)
-        _embedder = SentenceTransformer(settings.embedding_model, device="cpu")
+        # BGE-M3 on GPU — 5090 has headroom alongside the 7B vLLM model
+        _embedder = SentenceTransformer(settings.embedding_model, device="cuda")
     return _embedder
 
 
