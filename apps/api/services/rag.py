@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient
-from qdrant_client.models import ScoredPoint
 
 from apps.api.config import settings
 
@@ -23,10 +22,8 @@ def get_qdrant() -> QdrantClient:
     global _qdrant
     if _qdrant is None:
         if settings.qdrant_path:
-            # Embedded mode — runs in-process, no Docker needed
             _qdrant = QdrantClient(path=settings.qdrant_path)
         else:
-            # Server mode — requires a running Qdrant server
             _qdrant = QdrantClient(host=settings.qdrant_host, port=settings.qdrant_port)
     return _qdrant
 
@@ -34,16 +31,27 @@ def get_qdrant() -> QdrantClient:
 def search_menu(query: str, top_k: int | None = None) -> list[dict]:
     """
     Embed the Arabic query and search Qdrant for the most relevant meals.
-    Returns a list of meal payload dicts sorted by relevance (best first).
+    Compatible with both old (.search) and new (.query_points) qdrant-client APIs.
     """
     k = top_k or settings.rag_top_k
     vector = get_embedder().encode(query, normalize_embeddings=True).tolist()
+    client = get_qdrant()
 
-    results: list[ScoredPoint] = get_qdrant().search(
-        collection_name=settings.qdrant_collection,
-        query_vector=vector,
-        limit=k,
-        with_payload=True,
-    )
+    # Try new API first (qdrant-client >= 1.7.4), fall back to old API
+    try:
+        response = client.query_points(
+            collection_name=settings.qdrant_collection,
+            query=vector,
+            limit=k,
+            with_payload=True,
+        )
+        points = response.points
+    except AttributeError:
+        points = client.search(
+            collection_name=settings.qdrant_collection,
+            query_vector=vector,
+            limit=k,
+            with_payload=True,
+        )
 
-    return [{"score": round(r.score, 3), **r.payload} for r in results]
+    return [{"score": round(p.score, 3), **p.payload} for p in points]
