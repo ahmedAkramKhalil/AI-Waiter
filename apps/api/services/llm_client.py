@@ -53,11 +53,19 @@ async def call_llm(messages: list[dict]) -> LLMResponse:
 
     raw = resp.json()["choices"][0]["message"]["content"]
 
-    # Attempt to parse; fall back to empty response on malformed JSON
+    # Strip markdown code block wrapper if present (happens without guided_json)
+    cleaned = raw.strip()
+    if cleaned.startswith("```"):
+        lines = cleaned.split("\n")
+        # Remove first line (```json or ```) and last line (```)
+        cleaned = "\n".join(lines[1:-1]).strip()
+
+    # Attempt to parse structured response
     try:
-        return LLMResponse.model_validate_json(raw)
+        return LLMResponse.model_validate_json(cleaned)
     except Exception:
-        return LLMResponse(reply_ar=raw)
+        # If JSON is malformed, return the raw text as a plain reply
+        return LLMResponse(reply_ar=cleaned)
 
 
 async def stream_text(messages: list[dict]) -> AsyncIterator[str]:
