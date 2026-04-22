@@ -11,16 +11,60 @@ export function imageUrl(path: string): string {
   return `${API_BASE}${path.startsWith("/") ? "" : "/"}${path}`;
 }
 
-export async function startSession(): Promise<string> {
+export interface SessionStart {
+  session_id: string;
+  greeting: string;
+  suggestions: string[];
+}
+
+export async function startSession(): Promise<SessionStart> {
   const res = await fetch(`${API_BASE}/session/start`, { method: "POST" });
   if (!res.ok) throw new Error(`session/start ${res.status}`);
   const data = await res.json();
-  return data.session_id as string;
+  return {
+    session_id: data.session_id,
+    greeting:
+      data.greeting ??
+      "أهلاً وسهلاً بك في مطعم الأصالة 🌙 كيف أقدر أخدمك اليوم؟",
+    suggestions: data.suggestions ?? [
+      "أبي شي حار وغير غالي",
+      "اقترح لي طبق رئيسي",
+      "وش عندكم من المشويات؟",
+      "أضف الكبسة",
+    ],
+  };
 }
 
 export async function getCart(sessionId: string): Promise<Cart> {
   const res = await fetch(`${API_BASE}/cart/${sessionId}`);
   if (!res.ok) throw new Error(`cart ${res.status}`);
+  return (await res.json()) as Cart;
+}
+
+export async function addToCart(
+  sessionId: string,
+  mealId: string,
+  quantity = 1
+): Promise<Cart> {
+  const res = await fetch(`${API_BASE}/cart/add`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ session_id: sessionId, meal_id: mealId, quantity }),
+  });
+  if (!res.ok) throw new Error(`cart/add ${res.status}`);
+  return (await res.json()) as Cart;
+}
+
+export async function removeFromCart(
+  sessionId: string,
+  mealId: string
+): Promise<Cart> {
+  const res = await fetch(`${API_BASE}/cart/remove`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ session_id: sessionId, meal_id: mealId }),
+  });
+  if (!res.ok) throw new Error(`cart/remove ${res.status}`);
   return (await res.json()) as Cart;
 }
 

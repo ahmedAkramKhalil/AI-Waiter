@@ -8,7 +8,7 @@ interface Props {
   onAddToCart?: (mealId: string) => void;
 }
 
-export default function MessageBubble({ message }: Props) {
+export default function MessageBubble({ message, onAddToCart }: Props) {
   const isUser = message.role === "user";
   const showDots = message.streaming && !message.content;
 
@@ -34,7 +34,12 @@ export default function MessageBubble({ message }: Props) {
         <div className="w-full overflow-x-auto pb-2 -mx-4 px-4">
           <div className="flex gap-3 w-max">
             {message.cards.map((m, i) => (
-              <MealCard key={m.meal_id + i} meal={m} index={i} />
+              <MealCard
+                key={m.meal_id + i}
+                meal={m}
+                index={i}
+                onAdd={onAddToCart ? () => onAddToCart(m.meal_id) : undefined}
+              />
             ))}
           </div>
         </div>

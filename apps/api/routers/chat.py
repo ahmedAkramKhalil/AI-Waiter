@@ -17,43 +17,36 @@ router = APIRouter(tags=["chat"])
 @router.post("/chat")
 async def chat(request: ChatRequest):
     """
-    Main chat endpoint — returns an SSE stream.
+    Main chat endpoint — true SSE streaming.
 
-    SSE event types emitted in order:
-      1. "text"       — word-by-word Arabic reply
-      2. "meal_cards" — (optional) meal cards to render in the UI
+    The orchestrator yields events as the LLM produces tokens:
+      1. "text"       — each chunk of the Arabic reply as it streams
+      2. "meal_cards" — one event with the resolved cards (after ###META###)
       3. "done"       — signals end of stream
     """
     if session_store.get_session(request.session_id) is None:
         raise HTTPException(status_code=404, detail="الجلسة غير موجودة")
 
     async def event_generator():
-        # Run the full orchestrator (tool loop) — async but non-streaming internally
-        llm_response, meal_cards = await orchestrator.run(
+        async for ev in orchestrator.run_stream(
             session_id=request.session_id,
             user_message=request.message,
-        )
-
-        # Stream reply_ar word-by-word for a natural typing feel
-        words = llm_response.reply_ar.split(" ")
-        for idx, word in enumerate(words):
-            chunk = word if idx == 0 else f" {word}"
-            yield {
-                "event": "text",
-                "data": SSETextEvent(delta=chunk).model_dump_json(),
-            }
-
-        # Send meal cards as a single event (if any)
-        if meal_cards:
-            yield {
-                "event": "meal_cards",
-                "data": SSEMealCardEvent(cards=meal_cards).model_dump_json(),
-            }
-
-        # Signal completion
-        yield {
-            "event": "done",
-            "data": SSEDoneEvent(session_id=request.session_id).model_dump_json(),
-        }
+        ):
+            kind = ev["event"]
+            if kind == "text":
+                yield {
+                    "event": "text",
+                    "data": SSETextEvent(delta=ev["delta"]).model_dump_json(),
+                }
+            elif kind == "meal_cards":
+                yield {
+                    "event": "meal_cards",
+                    "data": SSEMealCardEvent(cards=ev["cards"]).model_dump_json(),
+                }
+            elif kind == "done":
+                yield {
+                    "event": "done",
+                    "data": SSEDoneEvent(session_id=ev["session_id"]).model_dump_json(),
+                }
 
     return EventSourceResponse(event_generator())

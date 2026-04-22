@@ -11,14 +11,18 @@ type Screen = "splash" | "chat" | "confirmed";
 export default function App() {
   const [screen, setScreen] = useState<Screen>("splash");
   const [sessionId, setSessionId] = useState<string>("");
+  const [greeting, setGreeting] = useState<string>("");
+  const [suggestions, setSuggestions] = useState<string[]>([]);
   const [order, setOrder] = useState<OrderConfirmation | null>(null);
   const [loading, setLoading] = useState(false);
 
   const handleStart = async () => {
     setLoading(true);
     try {
-      const id = await startSession();
-      setSessionId(id);
+      const s = await startSession();
+      setSessionId(s.session_id);
+      setGreeting(s.greeting);
+      setSuggestions(s.suggestions);
       setScreen("chat");
     } catch (err) {
       alert("تعذر الاتصال بالخادم. تحقق من VITE_API_BASE.");
@@ -70,6 +74,8 @@ export default function App() {
             >
               <ChatScreen
                 sessionId={sessionId}
+                greeting={greeting}
+                suggestions={suggestions}
                 onOrderPlaced={handleOrderPlaced}
               />
             </motion.div>

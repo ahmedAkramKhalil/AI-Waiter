@@ -31,8 +31,8 @@ class Settings(BaseSettings):
     images_dir: str = "data/images"
 
     # Chat
-    max_history_messages: int = 6
-    rag_top_k: int = 5
+    max_history_messages: int = 4
+    rag_top_k: int = 3
     max_tool_iterations: int = 5
 
 
