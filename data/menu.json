@@ -3,700 +3,1574 @@
     "id": "MEAL_001",
     "name_ar": "كبسة دجاج",
     "description_ar": "كبسة دجاج خليجية بالأرز البسمتي والبهارات العطرية والزعفران",
-    "ingredients": ["دجاج", "أرز بسمتي", "بهارات كبسة", "بصل", "طماطم", "زعفران", "قرفة"],
-    "allergens": ["لا يوجد"],
-    "tags": ["خليجي", "مشبع", "حار قليلاً", "الأكثر طلباً"],
+    "ingredients": [
+      "دجاج",
+      "أرز بسمتي",
+      "بهارات كبسة",
+      "بصل",
+      "طماطم",
+      "زعفران",
+      "قرفة"
+    ],
+    "allergens": [
+      "لا يوجد"
+    ],
+    "tags": [
+      "خليجي",
+      "مشبع",
+      "حار قليلاً",
+      "الأكثر طلباً"
+    ],
     "category": "أطباق رئيسية",
-    "price": 35,
+    "price": 35.0,
     "currency": "SAR",
     "spice_level": 2,
     "calories": 650,
-    "image_id": "meal_001.jpg"
+    "image_id": "كبسة دجاج.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_002",
     "name_ar": "مندي لحم",
     "description_ar": "لحم ضأن مطهو على الفحم بطريقة المندي التقليدية مع الأرز البسمتي",
-    "ingredients": ["لحم ضأن", "أرز بسمتي", "بهارات مندي", "بصل محمر", "كزبرة", "فلفل أسود"],
-    "allergens": ["لا يوجد"],
-    "tags": ["يمني", "مشبع", "مشوي", "تقليدي"],
+    "ingredients": [
+      "لحم ضأن",
+      "أرز بسمتي",
+      "بهارات مندي",
+      "بصل محمر",
+      "كزبرة",
+      "فلفل أسود"
+    ],
+    "allergens": [
+      "لا يوجد"
+    ],
+    "tags": [
+      "يمني",
+      "مشبع",
+      "مشوي",
+      "تقليدي"
+    ],
     "category": "أطباق رئيسية",
-    "price": 55,
+    "price": 55.0,
     "currency": "SAR",
     "spice_level": 1,
     "calories": 820,
-    "image_id": "meal_002.jpg"
+    "image_id": "مندي لحم.jpg",
+    "featured": true,
+    "recommendation_rank": 2,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_003",
     "name_ar": "مظبي دجاج",
     "description_ar": "دجاج مشوي على الفحم بتوابل المظبي اليمنية المميزة",
-    "ingredients": ["دجاج كامل", "بهارات مظبي", "ليمون", "ثوم", "زيت زيتون", "كزبرة"],
-    "allergens": ["لا يوجد"],
-    "tags": ["يمني", "مشوي", "خفيف", "صحي"],
+    "ingredients": [
+      "دجاج كامل",
+      "بهارات مظبي",
+      "ليمون",
+      "ثوم",
+      "زيت زيتون",
+      "كزبرة"
+    ],
+    "allergens": [
+      "لا يوجد"
+    ],
+    "tags": [
+      "يمني",
+      "مشوي",
+      "خفيف",
+      "صحي"
+    ],
     "category": "أطباق رئيسية",
-    "price": 42,
+    "price": 42.0,
     "currency": "SAR",
     "spice_level": 2,
     "calories": 520,
-    "image_id": "meal_003.jpg"
+    "image_id": "مظبي دجاج.png",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_004",
     "name_ar": "برياني لحم",
     "description_ar": "برياني هندي أصيل باللحم الضأن والأرز البسمتي والزعفران والمكسرات",
-    "ingredients": ["لحم ضأن", "أرز بسمتي", "زعفران", "بهارات برياني", "بصل مقلي", "مكسرات", "زبيب"],
-    "allergens": ["مكسرات"],
-    "tags": ["هندي", "مشبع", "حار", "مناسبة خاصة"],
+    "ingredients": [
+      "لحم ضأن",
+      "أرز بسمتي",
+      "زعفران",
+      "بهارات برياني",
+      "بصل مقلي",
+      "مكسرات",
+      "زبيب"
+    ],
+    "allergens": [
+      "مكسرات"
+    ],
+    "tags": [
+      "هندي",
+      "مشبع",
+      "حار",
+      "مناسبة خاصة"
+    ],
     "category": "أطباق رئيسية",
-    "price": 60,
+    "price": 60.0,
     "currency": "SAR",
     "spice_level": 3,
     "calories": 780,
-    "image_id": "meal_004.jpg"
+    "image_id": "برياني لحم.webp",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_005",
     "name_ar": "مقلوبة دجاج",
     "description_ar": "مقلوبة فلسطينية بالدجاج والأرز والخضار والبهارات المنزلية",
-    "ingredients": ["دجاج", "أرز", "بطاطس", "باذنجان", "زهرة", "بهارات مقلوبة", "صنوبر"],
-    "allergens": ["مكسرات"],
-    "tags": ["شامي", "مشبع", "تقليدي", "عائلي"],
+    "ingredients": [
+      "دجاج",
+      "أرز",
+      "بطاطس",
+      "باذنجان",
+      "زهرة",
+      "بهارات مقلوبة",
+      "صنوبر"
+    ],
+    "allergens": [
+      "مكسرات"
+    ],
+    "tags": [
+      "شامي",
+      "مشبع",
+      "تقليدي",
+      "عائلي"
+    ],
     "category": "أطباق رئيسية",
-    "price": 38,
+    "price": 38.0,
     "currency": "SAR",
     "spice_level": 1,
     "calories": 700,
-    "image_id": "meal_005.jpg"
+    "image_id": "مقلوبة دجاج.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_006",
     "name_ar": "فريكة بالدجاج",
     "description_ar": "فريكة القمح الأخضر مع الدجاج المطهو والمكسرات المحمصة",
-    "ingredients": ["فريكة", "دجاج", "بصل", "بهارات", "صنوبر", "لوز", "سمن"],
-    "allergens": ["جلوتين", "مكسرات"],
-    "tags": ["شامي", "صحي", "دافئ", "غني"],
+    "ingredients": [
+      "فريكة",
+      "دجاج",
+      "بصل",
+      "بهارات",
+      "صنوبر",
+      "لوز",
+      "سمن"
+    ],
+    "allergens": [
+      "جلوتين",
+      "مكسرات"
+    ],
+    "tags": [
+      "شامي",
+      "صحي",
+      "دافئ",
+      "غني"
+    ],
     "category": "أطباق رئيسية",
-    "price": 40,
+    "price": 40.0,
     "currency": "SAR",
     "spice_level": 1,
     "calories": 620,
-    "image_id": "meal_006.jpg"
+    "image_id": "فريكة بالدجاج.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_007",
     "name_ar": "هريس لحم",
     "description_ar": "هريس القمح باللحم المطهو ببطء مع السمن البلدي والقرفة",
-    "ingredients": ["قمح", "لحم ضأن", "سمن بلدي", "قرفة", "هيل", "ملح"],
-    "allergens": ["جلوتين", "ألبان"],
-    "tags": ["خليجي", "دافئ", "تقليدي", "شتوي"],
+    "ingredients": [
+      "قمح",
+      "لحم ضأن",
+      "سمن بلدي",
+      "قرفة",
+      "هيل",
+      "ملح"
+    ],
+    "allergens": [
+      "جلوتين",
+      "ألبان"
+    ],
+    "tags": [
+      "خليجي",
+      "دافئ",
+      "تقليدي",
+      "شتوي"
+    ],
     "category": "أطباق رئيسية",
-    "price": 30,
+    "price": 30.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 580,
-    "image_id": "meal_007.jpg"
+    "image_id": "هريس لحم.jpeg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_008",
     "name_ar": "جريش بالدجاج",
     "description_ar": "جريش القمح المجروش مع الدجاج والبهارات الخليجية والسمن",
-    "ingredients": ["جريش", "دجاج", "بصل", "طماطم", "سمن", "بهارات خليجية"],
-    "allergens": ["جلوتين", "ألبان"],
-    "tags": ["خليجي", "دافئ", "تقليدي"],
+    "ingredients": [
+      "جريش",
+      "دجاج",
+      "بصل",
+      "طماطم",
+      "سمن",
+      "بهارات خليجية"
+    ],
+    "allergens": [
+      "جلوتين",
+      "ألبان"
+    ],
+    "tags": [
+      "خليجي",
+      "دافئ",
+      "تقليدي"
+    ],
     "category": "أطباق رئيسية",
-    "price": 28,
+    "price": 28.0,
     "currency": "SAR",
     "spice_level": 1,
     "calories": 550,
-    "image_id": "meal_008.jpg"
+    "image_id": "جريش بالدجاج.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_009",
     "name_ar": "ثريد لحم",
     "description_ar": "ثريد خليجي بالخبز الرقيق ومرق اللحم والبهارات العطرية",
-    "ingredients": ["خبز رقيق", "لحم ضأن", "مرق", "بصل", "طماطم", "بهارات", "كزبرة"],
-    "allergens": ["جلوتين"],
-    "tags": ["خليجي", "تقليدي", "رمضاني", "مشبع"],
+    "ingredients": [
+      "خبز رقيق",
+      "لحم ضأن",
+      "مرق",
+      "بصل",
+      "طماطم",
+      "بهارات",
+      "كزبرة"
+    ],
+    "allergens": [
+      "جلوتين"
+    ],
+    "tags": [
+      "خليجي",
+      "تقليدي",
+      "رمضاني",
+      "مشبع"
+    ],
     "category": "أطباق رئيسية",
-    "price": 32,
+    "price": 32.0,
     "currency": "SAR",
     "spice_level": 1,
     "calories": 640,
-    "image_id": "meal_009.jpg"
+    "image_id": "ثريد لحم.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_010",
     "name_ar": "كبسة لحم",
     "description_ar": "كبسة لحم الضأن الأصيلة بالأرز البسمتي والبهارات الخليجية المزيجة",
-    "ingredients": ["لحم ضأن", "أرز بسمتي", "بهارات كبسة", "طماطم", "بصل", "زعفران", "ورق غار"],
-    "allergens": ["لا يوجد"],
-    "tags": ["خليجي", "مشبع", "حار قليلاً"],
+    "ingredients": [
+      "لحم ضأن",
+      "أرز بسمتي",
+      "بهارات كبسة",
+      "طماطم",
+      "بصل",
+      "زعفران",
+      "ورق غار"
+    ],
+    "allergens": [
+      "لا يوجد"
+    ],
+    "tags": [
+      "خليجي",
+      "مشبع",
+      "حار قليلاً"
+    ],
     "category": "أطباق رئيسية",
-    "price": 65,
+    "price": 65.0,
     "currency": "SAR",
     "spice_level": 2,
     "calories": 850,
-    "image_id": "meal_010.jpg"
+    "image_id": "كبسة لحم.jpeg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_011",
     "name_ar": "شاورما دجاج",
     "description_ar": "شاورما دجاج لبنانية بصوص الثوم والخضار الطازجة في خبز عربي",
-    "ingredients": ["دجاج مشوي", "خبز عربي", "طحينة", "بصل", "طماطم", "بقدونس", "ثوم"],
-    "allergens": ["جلوتين", "سمسم"],
-    "tags": ["شامي", "سريع", "شعبي", "غير مكلف"],
+    "ingredients": [
+      "دجاج مشوي",
+      "خبز عربي",
+      "طحينة",
+      "بصل",
+      "طماطم",
+      "بقدونس",
+      "ثوم"
+    ],
+    "allergens": [
+      "جلوتين",
+      "سمسم"
+    ],
+    "tags": [
+      "شامي",
+      "سريع",
+      "شعبي",
+      "غير مكلف"
+    ],
     "category": "مشاوي",
-    "price": 22,
+    "price": 22.0,
     "currency": "SAR",
     "spice_level": 1,
     "calories": 480,
-    "image_id": "meal_011.jpg"
+    "image_id": "شاورما دجاج.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_012",
     "name_ar": "شاورما لحم",
     "description_ar": "شاورما لحم العجل بتوابل الكمون والكزبرة مع صوص الطحينة",
-    "ingredients": ["لحم عجل", "خبز عربي", "طحينة", "بقدونس", "بصل مخلل", "طماطم"],
-    "allergens": ["جلوتين", "سمسم"],
-    "tags": ["شامي", "سريع", "شعبي"],
+    "ingredients": [
+      "لحم عجل",
+      "خبز عربي",
+      "طحينة",
+      "بقدونس",
+      "بصل مخلل",
+      "طماطم"
+    ],
+    "allergens": [
+      "جلوتين",
+      "سمسم"
+    ],
+    "tags": [
+      "شامي",
+      "سريع",
+      "شعبي"
+    ],
     "category": "مشاوي",
-    "price": 28,
+    "price": 28.0,
     "currency": "SAR",
     "spice_level": 2,
     "calories": 560,
-    "image_id": "meal_012.jpg"
+    "image_id": "شاورما لحم.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_013",
     "name_ar": "كباب مشكل",
     "description_ar": "تشكيلة من كباب اللحم والدجاج مع الخضار المشوية والأرز",
-    "ingredients": ["لحم مفروم", "دجاج", "بصل", "فلفل رومي", "بهارات كباب", "أرز"],
-    "allergens": ["لا يوجد"],
-    "tags": ["مشوي", "متنوع", "مشبع", "للعائلة"],
+    "ingredients": [
+      "لحم مفروم",
+      "دجاج",
+      "بصل",
+      "فلفل رومي",
+      "بهارات كباب",
+      "أرز"
+    ],
+    "allergens": [
+      "لا يوجد"
+    ],
+    "tags": [
+      "مشوي",
+      "متنوع",
+      "مشبع",
+      "للعائلة"
+    ],
     "category": "مشاوي",
-    "price": 70,
+    "price": 70.0,
     "currency": "SAR",
     "spice_level": 2,
     "calories": 720,
-    "image_id": "meal_013.jpg"
+    "image_id": "كباب مشكل.webp",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_014",
     "name_ar": "تكا دجاج",
     "description_ar": "دجاج مرينيت بالزبادي والبهارات الهندية ومشوي على الفحم",
-    "ingredients": ["دجاج", "زبادي", "بهارات تندوري", "ليمون", "ثوم", "زنجبيل"],
-    "allergens": ["ألبان"],
-    "tags": ["هندي", "مشوي", "حار", "صحي"],
+    "ingredients": [
+      "دجاج",
+      "زبادي",
+      "بهارات تندوري",
+      "ليمون",
+      "ثوم",
+      "زنجبيل"
+    ],
+    "allergens": [
+      "ألبان"
+    ],
+    "tags": [
+      "هندي",
+      "مشوي",
+      "حار",
+      "صحي"
+    ],
     "category": "مشاوي",
-    "price": 45,
+    "price": 45.0,
     "currency": "SAR",
     "spice_level": 3,
     "calories": 460,
-    "image_id": "meal_014.jpg"
+    "image_id": "تكا دجاج.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_015",
     "name_ar": "سمك مشوي",
     "description_ar": "سمك هامور طازج مشوي بالليمون والثوم والأعشاب البحرية",
-    "ingredients": ["سمك هامور", "ليمون", "ثوم", "زيت زيتون", "أعشاب", "ملح", "فلفل"],
-    "allergens": ["أسماك"],
-    "tags": ["بحري", "خفيف", "صحي", "طازج"],
+    "ingredients": [
+      "سمك هامور",
+      "ليمون",
+      "ثوم",
+      "زيت زيتون",
+      "أعشاب",
+      "ملح",
+      "فلفل"
+    ],
+    "allergens": [
+      "أسماك"
+    ],
+    "tags": [
+      "بحري",
+      "خفيف",
+      "صحي",
+      "طازج"
+    ],
     "category": "مشاوي",
-    "price": 85,
+    "price": 85.0,
     "currency": "SAR",
     "spice_level": 1,
     "calories": 380,
-    "image_id": "meal_015.jpg"
+    "image_id": "سمك مشوي.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_016",
     "name_ar": "جمبري مشوي",
     "description_ar": "جمبري طازج كبير الحجم مشوي بزبدة الثوم والأعشاب",
-    "ingredients": ["جمبري", "زبدة", "ثوم", "بقدونس", "ليمون", "فلفل أحمر"],
-    "allergens": ["قشريات", "ألبان"],
-    "tags": ["بحري", "فاخر", "حار قليلاً"],
+    "ingredients": [
+      "جمبري",
+      "زبدة",
+      "ثوم",
+      "بقدونس",
+      "ليمون",
+      "فلفل أحمر"
+    ],
+    "allergens": [
+      "قشريات",
+      "ألبان"
+    ],
+    "tags": [
+      "بحري",
+      "فاخر",
+      "حار قليلاً"
+    ],
     "category": "مشاوي",
-    "price": 95,
+    "price": 95.0,
     "currency": "SAR",
     "spice_level": 2,
     "calories": 320,
-    "image_id": "meal_016.jpg"
+    "image_id": "جمبري مشوي.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_017",
     "name_ar": "كفتة مشوية",
     "description_ar": "كفتة اللحم المفروم بالبصل والبقدونس والبهارات على الفحم",
-    "ingredients": ["لحم مفروم", "بصل", "بقدونس", "بهارات", "ثوم", "ملح"],
-    "allergens": ["لا يوجد"],
-    "tags": ["شامي", "مشوي", "شعبي", "غير مكلف"],
+    "ingredients": [
+      "لحم مفروم",
+      "بصل",
+      "بقدونس",
+      "بهارات",
+      "ثوم",
+      "ملح"
+    ],
+    "allergens": [
+      "لا يوجد"
+    ],
+    "tags": [
+      "شامي",
+      "مشوي",
+      "شعبي",
+      "غير مكلف"
+    ],
     "category": "مشاوي",
-    "price": 38,
+    "price": 38.0,
     "currency": "SAR",
     "spice_level": 2,
     "calories": 520,
-    "image_id": "meal_017.jpg"
+    "image_id": "كفتة مشوية.jpeg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_018",
     "name_ar": "دجاج مشوي كامل",
     "description_ar": "دجاج كامل مرينيت بالليمون والأعشاب ومشوي حتى الاحمرار",
-    "ingredients": ["دجاج كامل", "ليمون", "أوريجانو", "ثوم", "زيت زيتون", "بهارات"],
-    "allergens": ["لا يوجد"],
-    "tags": ["مشوي", "عائلي", "كلاسيكي"],
+    "ingredients": [
+      "دجاج كامل",
+      "ليمون",
+      "أوريجانو",
+      "ثوم",
+      "زيت زيتون",
+      "بهارات"
+    ],
+    "allergens": [
+      "لا يوجد"
+    ],
+    "tags": [
+      "مشوي",
+      "عائلي",
+      "كلاسيكي"
+    ],
     "category": "مشاوي",
-    "price": 48,
+    "price": 48.0,
     "currency": "SAR",
     "spice_level": 1,
     "calories": 590,
-    "image_id": "meal_018.jpg"
+    "image_id": "دجاج مشوي كامل.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_019",
     "name_ar": "حمص بالطحينة",
     "description_ar": "حمص كريمي ناعم بالطحينة وزيت الزيتون وبذور الرمان",
-    "ingredients": ["حبوب الحمص", "طحينة", "ليمون", "ثوم", "زيت زيتون", "كمون"],
-    "allergens": ["سمسم"],
-    "tags": ["نباتي", "صحي", "شامي", "مقبلات"],
+    "ingredients": [
+      "حبوب الحمص",
+      "طحينة",
+      "ليمون",
+      "ثوم",
+      "زيت زيتون",
+      "كمون"
+    ],
+    "allergens": [
+      "سمسم"
+    ],
+    "tags": [
+      "نباتي",
+      "صحي",
+      "شامي",
+      "مقبلات"
+    ],
     "category": "مقبلات",
-    "price": 18,
+    "price": 18.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 280,
-    "image_id": "meal_019.jpg"
+    "image_id": "حمص بالطحينة.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_020",
     "name_ar": "متبل باذنجان",
     "description_ar": "متبل الباذنجان المشوي بالطحينة والليمون ورشة من زيت الزيتون",
-    "ingredients": ["باذنجان", "طحينة", "ليمون", "ثوم", "ملح", "بقدونس", "زيت زيتون"],
-    "allergens": ["سمسم"],
-    "tags": ["نباتي", "مشوي", "شامي", "دخاني"],
+    "ingredients": [
+      "باذنجان",
+      "طحينة",
+      "ليمون",
+      "ثوم",
+      "ملح",
+      "بقدونس",
+      "زيت زيتون"
+    ],
+    "allergens": [
+      "سمسم"
+    ],
+    "tags": [
+      "نباتي",
+      "مشوي",
+      "شامي",
+      "دخاني"
+    ],
     "category": "مقبلات",
-    "price": 18,
+    "price": 18.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 180,
-    "image_id": "meal_020.jpg"
+    "image_id": "متبل باذنجان.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_021",
     "name_ar": "فتوش",
     "description_ar": "سلطة الفتوش الشامية بالخضار الطازجة والخبز المحمص وصوص الرمان",
-    "ingredients": ["خس", "طماطم", "خيار", "فجل", "خبز محمص", "دبس رمان", "نعنع"],
-    "allergens": ["جلوتين"],
-    "tags": ["نباتي", "طازج", "شامي", "خفيف"],
+    "ingredients": [
+      "خس",
+      "طماطم",
+      "خيار",
+      "فجل",
+      "خبز محمص",
+      "دبس رمان",
+      "نعنع"
+    ],
+    "allergens": [
+      "جلوتين"
+    ],
+    "tags": [
+      "نباتي",
+      "طازج",
+      "شامي",
+      "خفيف"
+    ],
     "category": "مقبلات",
-    "price": 20,
+    "price": 20.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 210,
-    "image_id": "meal_021.jpg"
+    "image_id": "فتوش.webp",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_022",
     "name_ar": "تبولة",
     "description_ar": "تبولة لبنانية طازجة بالبقدونس والطماطم والبرغل وعصير الليمون",
-    "ingredients": ["بقدونس", "طماطم", "برغل", "بصل أخضر", "نعنع", "ليمون", "زيت زيتون"],
-    "allergens": ["جلوتين"],
-    "tags": ["نباتي", "طازج", "لبناني", "صحي"],
+    "ingredients": [
+      "بقدونس",
+      "طماطم",
+      "برغل",
+      "بصل أخضر",
+      "نعنع",
+      "ليمون",
+      "زيت زيتون"
+    ],
+    "allergens": [
+      "جلوتين"
+    ],
+    "tags": [
+      "نباتي",
+      "طازج",
+      "لبناني",
+      "صحي"
+    ],
     "category": "مقبلات",
-    "price": 18,
+    "price": 18.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 190,
-    "image_id": "meal_022.jpg"
+    "image_id": "تبولة.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_023",
     "name_ar": "ورق عنب",
     "description_ar": "أوراق عنب محشية بالأرز والبقدونس وعصير الليمون مطبوخة ببطء",
-    "ingredients": ["أوراق عنب", "أرز", "بقدونس", "طماطم", "ليمون", "زيت زيتون"],
-    "allergens": ["لا يوجد"],
-    "tags": ["نباتي", "شامي", "تقليدي", "بارد"],
+    "ingredients": [
+      "أوراق عنب",
+      "أرز",
+      "بقدونس",
+      "طماطم",
+      "ليمون",
+      "زيت زيتون"
+    ],
+    "allergens": [
+      "لا يوجد"
+    ],
+    "tags": [
+      "نباتي",
+      "شامي",
+      "تقليدي",
+      "بارد"
+    ],
     "category": "مقبلات",
-    "price": 25,
+    "price": 25.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 240,
-    "image_id": "meal_023.jpg"
+    "image_id": "ورق عنب.png",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_024",
     "name_ar": "سمبوسة لحم",
     "description_ar": "سمبوسة مقلية محشوة باللحم المفروم والبصل والبهارات",
-    "ingredients": ["عجينة سمبوسة", "لحم مفروم", "بصل", "بهارات", "كزبرة", "زيت للقلي"],
-    "allergens": ["جلوتين"],
-    "tags": ["مقلي", "مشبع", "رمضاني", "شعبي"],
+    "ingredients": [
+      "عجينة سمبوسة",
+      "لحم مفروم",
+      "بصل",
+      "بهارات",
+      "كزبرة",
+      "زيت للقلي"
+    ],
+    "allergens": [
+      "جلوتين"
+    ],
+    "tags": [
+      "مقلي",
+      "مشبع",
+      "رمضاني",
+      "شعبي"
+    ],
     "category": "مقبلات",
-    "price": 22,
+    "price": 22.0,
     "currency": "SAR",
     "spice_level": 2,
     "calories": 350,
-    "image_id": "meal_024.jpg"
+    "image_id": "سمبوسة لحم.webp",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_025",
     "name_ar": "فول مدمس",
     "description_ar": "فول مدمس بالليمون والثوم وزيت الزيتون وبذور الكمون",
-    "ingredients": ["فول", "ثوم", "ليمون", "زيت زيتون", "كمون", "بقدونس"],
-    "allergens": ["لا يوجد"],
-    "tags": ["نباتي", "صحي", "مصري", "إفطار"],
+    "ingredients": [
+      "فول",
+      "ثوم",
+      "ليمون",
+      "زيت زيتون",
+      "كمون",
+      "بقدونس"
+    ],
+    "allergens": [
+      "لا يوجد"
+    ],
+    "tags": [
+      "نباتي",
+      "صحي",
+      "مصري",
+      "إفطار"
+    ],
     "category": "مقبلات",
-    "price": 15,
+    "price": 15.0,
     "currency": "SAR",
     "spice_level": 1,
     "calories": 310,
-    "image_id": "meal_025.jpg"
+    "image_id": "فول مدمس.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_026",
     "name_ar": "محمرة",
     "description_ar": "صلصة الفلفل الأحمر الحارة بالمكسرات والزيت والتوابل الحلبية",
-    "ingredients": ["فلفل أحمر مشوي", "مكسرات", "رمان", "ثوم", "زيت", "فلفل حار"],
-    "allergens": ["مكسرات"],
-    "tags": ["حار", "حلبي", "نباتي", "مثير"],
+    "ingredients": [
+      "فلفل أحمر مشوي",
+      "مكسرات",
+      "رمان",
+      "ثوم",
+      "زيت",
+      "فلفل حار"
+    ],
+    "allergens": [
+      "مكسرات"
+    ],
+    "tags": [
+      "حار",
+      "حلبي",
+      "نباتي",
+      "مثير"
+    ],
     "category": "مقبلات",
-    "price": 16,
+    "price": 16.0,
     "currency": "SAR",
     "spice_level": 4,
     "calories": 220,
-    "image_id": "meal_026.jpg"
+    "image_id": "محمرة.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_027",
     "name_ar": "كبة مقلية",
     "description_ar": "كبة برغل محشوة باللحم المفروم والمكسرات مقلية حتى الذهبية",
-    "ingredients": ["برغل", "لحم مفروم", "بصل", "مكسرات", "بهارات", "زيت للقلي"],
-    "allergens": ["جلوتين", "مكسرات"],
-    "tags": ["شامي", "مقلي", "تقليدي"],
+    "ingredients": [
+      "برغل",
+      "لحم مفروم",
+      "بصل",
+      "مكسرات",
+      "بهارات",
+      "زيت للقلي"
+    ],
+    "allergens": [
+      "جلوتين",
+      "مكسرات"
+    ],
+    "tags": [
+      "شامي",
+      "مقلي",
+      "تقليدي"
+    ],
     "category": "مقبلات",
-    "price": 24,
+    "price": 24.0,
     "currency": "SAR",
     "spice_level": 1,
     "calories": 380,
-    "image_id": "meal_027.jpg"
+    "image_id": "كبة مقلية.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_028",
     "name_ar": "بالظي",
     "description_ar": "أصابع عجين محشوة بالجبن والسبانخ ومقلية ومقدمة مع صوص الطماطم",
-    "ingredients": ["عجين", "جبن فيتا", "سبانخ", "ثوم", "بيض", "زيت"],
-    "allergens": ["جلوتين", "ألبان", "بيض"],
-    "tags": ["نباتي", "خفيف", "مقلي"],
+    "ingredients": [
+      "عجين",
+      "جبن فيتا",
+      "سبانخ",
+      "ثوم",
+      "بيض",
+      "زيت"
+    ],
+    "allergens": [
+      "جلوتين",
+      "ألبان",
+      "بيض"
+    ],
+    "tags": [
+      "نباتي",
+      "خفيف",
+      "مقلي"
+    ],
     "category": "مقبلات",
-    "price": 20,
+    "price": 20.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 290,
-    "image_id": "meal_028.jpg"
+    "image_id": "بالظي.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_029",
     "name_ar": "أم علي",
     "description_ar": "حلوى أم علي المصرية الدافئة بالعجين المورق والمكسرات والكريمة",
-    "ingredients": ["عجين مورق", "حليب", "كريمة", "سكر", "مكسرات مشكلة", "جوز الهند", "زبيب"],
-    "allergens": ["جلوتين", "ألبان", "مكسرات"],
-    "tags": ["حلو", "مصري", "دافئ", "كريمي"],
+    "ingredients": [
+      "عجين مورق",
+      "حليب",
+      "كريمة",
+      "سكر",
+      "مكسرات مشكلة",
+      "جوز الهند",
+      "زبيب"
+    ],
+    "allergens": [
+      "جلوتين",
+      "ألبان",
+      "مكسرات"
+    ],
+    "tags": [
+      "حلو",
+      "مصري",
+      "دافئ",
+      "كريمي"
+    ],
     "category": "حلويات",
-    "price": 25,
+    "price": 25.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 520,
-    "image_id": "meal_029.jpg"
+    "image_id": "أم علي.png",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_030",
     "name_ar": "كنافة نابلسية",
     "description_ar": "كنافة نابلسية بالجبن الطازج ووجه الكنافة المقرمشة والقطر العطر",
-    "ingredients": ["خيوط كنافة", "جبن نابلسي", "سكر", "ماء ورد", "مكسرات", "قطر"],
-    "allergens": ["جلوتين", "ألبان", "مكسرات"],
-    "tags": ["حلو", "شامي", "تقليدي", "الأكثر طلباً"],
+    "ingredients": [
+      "خيوط كنافة",
+      "جبن نابلسي",
+      "سكر",
+      "ماء ورد",
+      "مكسرات",
+      "قطر"
+    ],
+    "allergens": [
+      "جلوتين",
+      "ألبان",
+      "مكسرات"
+    ],
+    "tags": [
+      "حلو",
+      "شامي",
+      "تقليدي",
+      "الأكثر طلباً"
+    ],
     "category": "حلويات",
-    "price": 28,
+    "price": 28.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 480,
-    "image_id": "meal_030.jpg"
+    "image_id": "كنافة نابلسية.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_031",
     "name_ar": "بسبوسة",
     "description_ar": "بسبوسة السميد الناعمة بالمكسرات والقطر والزبدة الذهبية",
-    "ingredients": ["سميد", "سكر", "زبدة", "زبادي", "مكسرات", "قطر", "جوز الهند"],
-    "allergens": ["جلوتين", "ألبان", "مكسرات"],
-    "tags": ["حلو", "مصري", "ناعم"],
+    "ingredients": [
+      "سميد",
+      "سكر",
+      "زبدة",
+      "زبادي",
+      "مكسرات",
+      "قطر",
+      "جوز الهند"
+    ],
+    "allergens": [
+      "جلوتين",
+      "ألبان",
+      "مكسرات"
+    ],
+    "tags": [
+      "حلو",
+      "مصري",
+      "ناعم"
+    ],
     "category": "حلويات",
-    "price": 18,
+    "price": 18.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 420,
-    "image_id": "meal_031.jpg"
+    "image_id": "بسبوسة.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_032",
     "name_ar": "قطايف بالجبن",
     "description_ar": "قطايف رمضانية محشوة بالجبن والقشطة مقلية ومغمورة في القطر",
-    "ingredients": ["عجينة قطايف", "جبن عكاوي", "قشطة", "قطر", "مكسرات", "زيت"],
-    "allergens": ["جلوتين", "ألبان", "مكسرات"],
-    "tags": ["حلو", "رمضاني", "تقليدي", "مقلي"],
+    "ingredients": [
+      "عجينة قطايف",
+      "جبن عكاوي",
+      "قشطة",
+      "قطر",
+      "مكسرات",
+      "زيت"
+    ],
+    "allergens": [
+      "جلوتين",
+      "ألبان",
+      "مكسرات"
+    ],
+    "tags": [
+      "حلو",
+      "رمضاني",
+      "تقليدي",
+      "مقلي"
+    ],
     "category": "حلويات",
-    "price": 22,
+    "price": 22.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 460,
-    "image_id": "meal_032.jpg"
+    "image_id": "قطايف بالجبن.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_033",
     "name_ar": "مهلبية",
     "description_ar": "مهلبية الحليب الناعمة بعطر ماء الورد والفستق الحلبي المطحون",
-    "ingredients": ["حليب", "نشا", "سكر", "ماء ورد", "ماء الزهر", "فستق"],
-    "allergens": ["ألبان", "مكسرات"],
-    "tags": ["حلو", "خفيف", "عربي", "بارد"],
+    "ingredients": [
+      "حليب",
+      "نشا",
+      "سكر",
+      "ماء ورد",
+      "ماء الزهر",
+      "فستق"
+    ],
+    "allergens": [
+      "ألبان",
+      "مكسرات"
+    ],
+    "tags": [
+      "حلو",
+      "خفيف",
+      "عربي",
+      "بارد"
+    ],
     "category": "حلويات",
-    "price": 20,
+    "price": 20.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 280,
-    "image_id": "meal_033.jpg"
+    "image_id": "مهلبية.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_034",
     "name_ar": "لقيمات بالعسل",
     "description_ar": "لقيمات ذهبية مقلية مغطاة بالعسل وجوز الهند والسمسم",
-    "ingredients": ["دقيق", "خميرة", "سكر", "عسل", "جوز الهند", "سمسم", "زيت"],
-    "allergens": ["جلوتين", "سمسم"],
-    "tags": ["حلو", "خليجي", "مقلي", "شعبي"],
+    "ingredients": [
+      "دقيق",
+      "خميرة",
+      "سكر",
+      "عسل",
+      "جوز الهند",
+      "سمسم",
+      "زيت"
+    ],
+    "allergens": [
+      "جلوتين",
+      "سمسم"
+    ],
+    "tags": [
+      "حلو",
+      "خليجي",
+      "مقلي",
+      "شعبي"
+    ],
     "category": "حلويات",
-    "price": 20,
+    "price": 20.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 390,
-    "image_id": "meal_034.jpg"
+    "image_id": "لقيمات بالعسل.webp",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_035",
     "name_ar": "عيش السرايا",
     "description_ar": "حلوى عيش السرايا اللبنانية بالقشطة والعسل والقرفة والمكسرات",
-    "ingredients": ["خبز محمص", "قشطة", "عسل", "قرفة", "مكسرات", "ماء الزهر"],
-    "allergens": ["جلوتين", "ألبان", "مكسرات"],
-    "tags": ["حلو", "لبناني", "كريمي", "تقليدي"],
+    "ingredients": [
+      "خبز محمص",
+      "قشطة",
+      "عسل",
+      "قرفة",
+      "مكسرات",
+      "ماء الزهر"
+    ],
+    "allergens": [
+      "جلوتين",
+      "ألبان",
+      "مكسرات"
+    ],
+    "tags": [
+      "حلو",
+      "لبناني",
+      "كريمي",
+      "تقليدي"
+    ],
     "category": "حلويات",
-    "price": 22,
+    "price": 22.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 440,
-    "image_id": "meal_035.jpg"
+    "image_id": "عيش السرايا.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_036",
     "name_ar": "عصير برتقال طازج",
     "description_ar": "عصير برتقال مضغوط طازج بدون سكر مضاف",
-    "ingredients": ["برتقال"],
-    "allergens": ["لا يوجد"],
-    "tags": ["بارد", "طازج", "صحي", "فيتامين سي"],
+    "ingredients": [
+      "برتقال"
+    ],
+    "allergens": [
+      "لا يوجد"
+    ],
+    "tags": [
+      "بارد",
+      "طازج",
+      "صحي",
+      "فيتامين سي"
+    ],
     "category": "مشروبات",
-    "price": 15,
+    "price": 15.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 120,
-    "image_id": "meal_036.jpg"
+    "image_id": "عصير برتقال طازج.webp",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_037",
     "name_ar": "لبن عيران",
     "description_ar": "مشروب لبن بارد مملّح ومنعش مع نعنع جاف",
-    "ingredients": ["لبن", "ماء", "ملح", "نعنع"],
-    "allergens": ["ألبان"],
-    "tags": ["بارد", "منعش", "صحي", "خفيف"],
+    "ingredients": [
+      "لبن",
+      "ماء",
+      "ملح",
+      "نعنع"
+    ],
+    "allergens": [
+      "ألبان"
+    ],
+    "tags": [
+      "بارد",
+      "منعش",
+      "صحي",
+      "خفيف"
+    ],
     "category": "مشروبات",
-    "price": 12,
+    "price": 12.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 80,
-    "image_id": "meal_037.jpg"
+    "image_id": "لبن عيران.jpeg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_038",
     "name_ar": "قهوة عربية",
     "description_ar": "قهوة عربية بالهيل والزعفران مقدمة مع التمر",
-    "ingredients": ["بن عربي", "هيل", "زعفران", "ماء", "تمر"],
-    "allergens": ["لا يوجد"],
-    "tags": ["ساخن", "خليجي", "تقليدي", "ضيافة"],
+    "ingredients": [
+      "بن عربي",
+      "هيل",
+      "زعفران",
+      "ماء",
+      "تمر"
+    ],
+    "allergens": [
+      "لا يوجد"
+    ],
+    "tags": [
+      "ساخن",
+      "خليجي",
+      "تقليدي",
+      "ضيافة"
+    ],
     "category": "مشروبات",
-    "price": 10,
+    "price": 10.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 20,
-    "image_id": "meal_038.jpg"
+    "image_id": "قهوة عربية.webp",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_039",
     "name_ar": "شاي كرك",
     "description_ar": "شاي كرك هندي بالحليب الكامل والهيل والزنجبيل والقرفة",
-    "ingredients": ["شاي أسود", "حليب", "هيل", "زنجبيل", "قرفة", "سكر"],
-    "allergens": ["ألبان"],
-    "tags": ["ساخن", "خليجي", "هندي", "منعش"],
+    "ingredients": [
+      "شاي أسود",
+      "حليب",
+      "هيل",
+      "زنجبيل",
+      "قرفة",
+      "سكر"
+    ],
+    "allergens": [
+      "ألبان"
+    ],
+    "tags": [
+      "ساخن",
+      "خليجي",
+      "هندي",
+      "منعش"
+    ],
     "category": "مشروبات",
-    "price": 12,
+    "price": 12.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 150,
-    "image_id": "meal_039.jpg"
+    "image_id": "meal_039.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_040",
     "name_ar": "عرق سوس",
     "description_ar": "مشروب عرق السوس الطبيعي البارد المحلى بالسكر الطبيعي",
-    "ingredients": ["عرق سوس", "ماء", "سكر", "جوز الهند المجفف"],
-    "allergens": ["لا يوجد"],
-    "tags": ["بارد", "تقليدي", "شعبي", "صيفي"],
+    "ingredients": [
+      "عرق سوس",
+      "ماء",
+      "سكر",
+      "جوز الهند المجفف"
+    ],
+    "allergens": [
+      "لا يوجد"
+    ],
+    "tags": [
+      "بارد",
+      "تقليدي",
+      "شعبي",
+      "صيفي"
+    ],
     "category": "مشروبات",
-    "price": 10,
+    "price": 10.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 90,
-    "image_id": "meal_040.jpg"
+    "image_id": "عرق سوس.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_041",
     "name_ar": "مجبوس دجاج",
     "description_ar": "مجبوس الدجاج البحريني باللومي والزعفران والبهارات الخليجية",
-    "ingredients": ["دجاج", "أرز بسمتي", "لومي", "زعفران", "بصل", "طماطم", "بهارات مجبوس"],
-    "allergens": ["لا يوجد"],
-    "tags": ["خليجي", "بحريني", "مشبع", "عطري"],
+    "ingredients": [
+      "دجاج",
+      "أرز بسمتي",
+      "لومي",
+      "زعفران",
+      "بصل",
+      "طماطم",
+      "بهارات مجبوس"
+    ],
+    "allergens": [
+      "لا يوجد"
+    ],
+    "tags": [
+      "خليجي",
+      "بحريني",
+      "مشبع",
+      "عطري"
+    ],
     "category": "أطباق رئيسية",
-    "price": 40,
+    "price": 40.0,
     "currency": "SAR",
     "spice_level": 2,
     "calories": 670,
-    "image_id": "meal_041.jpg"
+    "image_id": "مجبوس دجاج.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_042",
     "name_ar": "سليق دجاج",
     "description_ar": "أرز سليق حجازي بالدجاج المطهو في مرق أبيض دسم مع لبن بارد",
-    "ingredients": ["دجاج", "أرز", "حليب", "سمن", "بهارات حجازية", "لبن"],
-    "allergens": ["ألبان"],
-    "tags": ["حجازي", "تقليدي", "أبيض", "مشبع"],
+    "ingredients": [
+      "دجاج",
+      "أرز",
+      "حليب",
+      "سمن",
+      "بهارات حجازية",
+      "لبن"
+    ],
+    "allergens": [
+      "ألبان"
+    ],
+    "tags": [
+      "حجازي",
+      "تقليدي",
+      "أبيض",
+      "مشبع"
+    ],
     "category": "أطباق رئيسية",
-    "price": 38,
+    "price": 38.0,
     "currency": "SAR",
     "spice_level": 0,
     "calories": 690,
-    "image_id": "meal_042.jpg"
+    "image_id": "سليق دجاج.webp",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_043",
     "name_ar": "مضغوط ضأن",
     "description_ar": "مضغوط اللحم العُماني بالأرز والبهارات مطهو في قِدر ضغط تقليدية",
-    "ingredients": ["لحم ضأن", "أرز", "بهارات مضغوط", "بصل", "كزبرة", "هيل"],
-    "allergens": ["لا يوجد"],
-    "tags": ["عُماني", "تقليدي", "مشبع", "عطري"],
+    "ingredients": [
+      "لحم ضأن",
+      "أرز",
+      "بهارات مضغوط",
+      "بصل",
+      "كزبرة",
+      "هيل"
+    ],
+    "allergens": [
+      "لا يوجد"
+    ],
+    "tags": [
+      "عُماني",
+      "تقليدي",
+      "مشبع",
+      "عطري"
+    ],
     "category": "أطباق رئيسية",
-    "price": 58,
+    "price": 58.0,
     "currency": "SAR",
     "spice_level": 1,
     "calories": 800,
-    "image_id": "meal_043.jpg"
+    "image_id": "مضغوط ضأن.webp",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_044",
     "name_ar": "ماكبوس سمك",
     "description_ar": "ماكبوس السمك الكويتي بالسمك المشوي والأرز والزعفران واللومي",
-    "ingredients": ["سمك شعري", "أرز", "لومي", "زعفران", "كزبرة", "بهارات بحرية"],
-    "allergens": ["أسماك"],
-    "tags": ["خليجي", "كويتي", "بحري", "عطري"],
+    "ingredients": [
+      "سمك شعري",
+      "أرز",
+      "لومي",
+      "زعفران",
+      "كزبرة",
+      "بهارات بحرية"
+    ],
+    "allergens": [
+      "أسماك"
+    ],
+    "tags": [
+      "خليجي",
+      "كويتي",
+      "بحري",
+      "عطري"
+    ],
     "category": "أطباق رئيسية",
-    "price": 75,
+    "price": 75.0,
     "currency": "SAR",
     "spice_level": 2,
     "calories": 720,
-    "image_id": "meal_044.jpg"
+    "image_id": "ماكبوس سمك.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_045",
     "name_ar": "صالونة دجاج",
     "description_ar": "يخنة دجاج إماراتية بالخضار والبهارات المحلية مع الخبز الرقيق",
-    "ingredients": ["دجاج", "بطاطس", "طماطم", "بصل", "بهارات صالونة", "كزبرة", "خبز رقيق"],
-    "allergens": ["جلوتين"],
-    "tags": ["إماراتي", "تقليدي", "يخني", "دافئ"],
+    "ingredients": [
+      "دجاج",
+      "بطاطس",
+      "طماطم",
+      "بصل",
+      "بهارات صالونة",
+      "كزبرة",
+      "خبز رقيق"
+    ],
+    "allergens": [
+      "جلوتين"
+    ],
+    "tags": [
+      "إماراتي",
+      "تقليدي",
+      "يخني",
+      "دافئ"
+    ],
     "category": "أطباق رئيسية",
-    "price": 36,
+    "price": 36.0,
     "currency": "SAR",
     "spice_level": 2,
     "calories": 580,
-    "image_id": "meal_045.jpg"
+    "image_id": "صالونة دجاج.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_046",
     "name_ar": "مسلوق جمبري",
     "description_ar": "جمبري مسلوق مع صوص الكوكتيل الحار وشرائح الليمون والخس",
-    "ingredients": ["جمبري", "صوص كوكتيل", "ليمون", "خس", "ملح", "فلفل"],
-    "allergens": ["قشريات"],
-    "tags": ["بحري", "خفيف", "بارد", "مقبلات فاخرة"],
+    "ingredients": [
+      "جمبري",
+      "صوص كوكتيل",
+      "ليمون",
+      "خس",
+      "ملح",
+      "فلفل"
+    ],
+    "allergens": [
+      "قشريات"
+    ],
+    "tags": [
+      "بحري",
+      "خفيف",
+      "بارد",
+      "مقبلات فاخرة"
+    ],
     "category": "مقبلات",
-    "price": 55,
+    "price": 55.0,
     "currency": "SAR",
     "spice_level": 1,
     "calories": 180,
-    "image_id": "meal_046.jpg"
+    "image_id": "مسلوق جمبري.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_047",
     "name_ar": "بسطيلة دجاج",
     "description_ar": "فطيرة بسطيلة مغربية باللوز والدجاج والقرفة والسكر البودرة",
-    "ingredients": ["عجينة ورقية", "دجاج", "لوز", "بيض", "قرفة", "سكر بودرة", "زعفران"],
-    "allergens": ["جلوتين", "مكسرات", "بيض"],
-    "tags": ["مغربي", "فاخر", "حلو مالح", "مناسبة"],
+    "ingredients": [
+      "عجينة ورقية",
+      "دجاج",
+      "لوز",
+      "بيض",
+      "قرفة",
+      "سكر بودرة",
+      "زعفران"
+    ],
+    "allergens": [
+      "جلوتين",
+      "مكسرات",
+      "بيض"
+    ],
+    "tags": [
+      "مغربي",
+      "فاخر",
+      "حلو مالح",
+      "مناسبة"
+    ],
     "category": "أطباق رئيسية",
-    "price": 55,
+    "price": 55.0,
     "currency": "SAR",
     "spice_level": 1,
     "calories": 610,
-    "image_id": "meal_047.jpg"
+    "image_id": "بسطيلة دجاج.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_048",
     "name_ar": "طاجين لحم بالخضار",
     "description_ar": "طاجين مغربي بلحم الضأن والخضار الموسمية والزيتون والليمون المخلل",
-    "ingredients": ["لحم ضأن", "خضار موسمية", "زيتون", "ليمون مخلل", "بهارات راس الحانوت", "كزبرة"],
-    "allergens": ["لا يوجد"],
-    "tags": ["مغربي", "يخني", "تقليدي", "مشبع"],
+    "ingredients": [
+      "لحم ضأن",
+      "خضار موسمية",
+      "زيتون",
+      "ليمون مخلل",
+      "بهارات راس الحانوت",
+      "كزبرة"
+    ],
+    "allergens": [
+      "لا يوجد"
+    ],
+    "tags": [
+      "مغربي",
+      "يخني",
+      "تقليدي",
+      "مشبع"
+    ],
     "category": "أطباق رئيسية",
-    "price": 62,
+    "price": 62.0,
     "currency": "SAR",
     "spice_level": 2,
     "calories": 680,
-    "image_id": "meal_048.jpg"
+    "image_id": "طاجين لحم بالخضار.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_049",
     "name_ar": "شوربة عدس",
     "description_ar": "شوربة عدس أحمر ناعمة بالكمون والليمون وزيت الزيتون",
-    "ingredients": ["عدس أحمر", "بصل", "ثوم", "كمون", "كركم", "ليمون", "زيت زيتون"],
-    "allergens": ["لا يوجد"],
-    "tags": ["نباتي", "ساخن", "صحي", "خفيف"],
+    "ingredients": [
+      "عدس أحمر",
+      "بصل",
+      "ثوم",
+      "كمون",
+      "كركم",
+      "ليمون",
+      "زيت زيتون"
+    ],
+    "allergens": [
+      "لا يوجد"
+    ],
+    "tags": [
+      "نباتي",
+      "ساخن",
+      "صحي",
+      "خفيف"
+    ],
     "category": "مقبلات",
-    "price": 16,
+    "price": 16.0,
     "currency": "SAR",
     "spice_level": 1,
     "calories": 220,
-    "image_id": "meal_049.jpg"
+    "image_id": "شوربة عدس.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   },
   {
     "id": "MEAL_050",
     "name_ar": "تشريب خروف",
     "description_ar": "تشريب العراقي الأصيل بلحم الخروف والخبز التنوري ومرق البهارات",
-    "ingredients": ["خروف", "خبز تنور", "بصل", "طماطم", "بهارات عراقية", "كزبرة", "حامض"],
-    "allergens": ["جلوتين"],
-    "tags": ["عراقي", "تقليدي", "مشبع", "بخار"],
+    "ingredients": [
+      "خروف",
+      "خبز تنور",
+      "بصل",
+      "طماطم",
+      "بهارات عراقية",
+      "كزبرة",
+      "حامض"
+    ],
+    "allergens": [
+      "جلوتين"
+    ],
+    "tags": [
+      "عراقي",
+      "تقليدي",
+      "مشبع",
+      "بخار"
+    ],
     "category": "أطباق رئيسية",
-    "price": 68,
+    "price": 68.0,
     "currency": "SAR",
     "spice_level": 2,
     "calories": 860,
-    "image_id": "meal_050.jpg"
+    "image_id": "تشريب خروف.jpg",
+    "featured": false,
+    "recommendation_rank": 0,
+    "sales_pitch_ar": ""
   }
 ]

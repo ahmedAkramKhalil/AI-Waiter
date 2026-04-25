@@ -14,8 +14,8 @@ from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams, PointStruct
 
-# BGE-M3 dense vector dimension
-VECTOR_SIZE = 1024
+# Vector dimension is inferred from the embedding model at runtime (see main()),
+# so swapping EMBEDDING_MODEL in .env never creates a dim mismatch.
 
 
 def build_searchable_text(meal: dict) -> str:
@@ -28,7 +28,10 @@ def build_searchable_text(meal: dict) -> str:
         f"{meal['description_ar']} "
         f"{' '.join(meal['ingredients'])} "
         f"{' '.join(meal['tags'])} "
-        f"{meal['category']}"
+        f"{meal['category']} "
+        f"{meal.get('sales_pitch_ar', '')} "
+        f"{'مميز موصى به' if meal.get('featured') else ''} "
+        f"{' '.join(['أولوية'] * int(meal.get('recommendation_rank', 0)))}"
     )
 
 
@@ -62,6 +65,8 @@ def main() -> None:
 
     print(f"Loading embedding model: {embedding_model} (CPU)")
     model = SentenceTransformer(embedding_model, device="cpu")
+    vector_size = model.get_sentence_embedding_dimension()
+    print(f"  → vector dim = {vector_size}")
 
     if qdrant_path:
         print(f"Using Qdrant embedded mode at: {qdrant_path}")
@@ -70,10 +75,10 @@ def main() -> None:
         print(f"Connecting to Qdrant server at {qdrant_host}:{qdrant_port}")
         client = QdrantClient(host=qdrant_host, port=qdrant_port)
 
-    print(f"Recreating collection '{collection}' (vector size={VECTOR_SIZE})")
+    print(f"Recreating collection '{collection}' (vector size={vector_size})")
     client.recreate_collection(
         collection_name=collection,
-        vectors_config=VectorParams(size=VECTOR_SIZE, distance=Distance.COSINE),
+        vectors_config=VectorParams(size=vector_size, distance=Distance.COSINE),
     )
 
     print("Embedding meals…")

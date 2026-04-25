@@ -6,7 +6,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['"Tajawal"', '"Cairo"', "system-ui", "sans-serif"],
-        display: ['"Amiri"', '"Tajawal"', "serif"],
+        display: ['"Tajawal"', '"Cairo"', "system-ui", "sans-serif"],
       },
       colors: {
         wine: {

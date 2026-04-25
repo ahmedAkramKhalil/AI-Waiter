@@ -5,6 +5,7 @@ from sse_starlette.sse import EventSourceResponse
 
 from apps.api.models.chat import (
     ChatRequest,
+    SSEChoicesEvent,
     SSEDoneEvent,
     SSEMealCardEvent,
     SSETextEvent,
@@ -31,6 +32,7 @@ async def chat(request: ChatRequest):
         async for ev in orchestrator.run_stream(
             session_id=request.session_id,
             user_message=request.message,
+            follow_up_context=request.follow_up_context,
         ):
             kind = ev["event"]
             if kind == "text":
@@ -42,6 +44,14 @@ async def chat(request: ChatRequest):
                 yield {
                     "event": "meal_cards",
                     "data": SSEMealCardEvent(cards=ev["cards"]).model_dump_json(),
+                }
+            elif kind == "choices":
+                yield {
+                    "event": "choices",
+                    "data": SSEChoicesEvent(
+                        questions=ev["questions"],
+                        submit_label=ev.get("submit_label", "رشّح لي الآن"),
+                    ).model_dump_json(),
                 }
             elif kind == "done":
                 yield {

@@ -6,6 +6,7 @@ from pydantic import BaseModel
 class ChatRequest(BaseModel):
     session_id: str
     message: str  # Arabic user text
+    follow_up_context: str | None = None
 
 
 class MealCard(BaseModel):
@@ -18,6 +19,18 @@ class MealCard(BaseModel):
     calories: int
 
 
+class ChoiceOption(BaseModel):
+    id: str
+    label: str
+    value: str
+
+
+class ChoiceQuestion(BaseModel):
+    id: str
+    label: str
+    options: list[ChoiceOption]
+
+
 class SSETextEvent(BaseModel):
     type: Literal["text"] = "text"
     delta: str
@@ -26,6 +39,12 @@ class SSETextEvent(BaseModel):
 class SSEMealCardEvent(BaseModel):
     type: Literal["meal_cards"] = "meal_cards"
     cards: list[MealCard]
+
+
+class SSEChoicesEvent(BaseModel):
+    type: Literal["choices"] = "choices"
+    questions: list[ChoiceQuestion]
+    submit_label: str = "رشّح لي الآن"
 
 
 class SSEDoneEvent(BaseModel):

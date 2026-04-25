@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مخطط نظام المطعم</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ═══ RESET & BASE ═══ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --gold: #c9a84c;
+  --gold2: #e8d49a;
+  --bg: #0d1018;
+  --bg2: #13171f;
+  --bg3: #1a1e2a;
+  --muted: #8a8070;
+  --text: #ddd8cc;
+  --hot: #c0392b;
+  --grill: #e67e22;
+  --fry: #d35400;
+  --cold: #2980b9;
+  --pastry: #8e44ad;
+  --bar: #16a085;
+  --green: #27ae60;
+  --teal: #17a2b8;
+}
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  direction: rtl;
+  padding: 20px;
+  line-height: 1.5;
+}
+
+/* ═══ PAGE HEADER ═══ */
+.page-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.page-title h1 {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+.page-title p {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+  letter-spacing: 2px;
+}
+
+/* ═══ SECTION LABEL ═══ */
+.section-label {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 4px;
+  opacity: 0.7;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+/* ═══ ARROW ═══ */
+.arrow-down {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 28px;
+  color: var(--gold);
+  font-size: 18px;
+  opacity: 0.7;
+}
+.arrow-down-dashed {
+  display: flex;
+  justify-content: center;
+  height: 24px;
+  position: relative;
+}
+.arrow-down-dashed::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 2px;
+  border-right: 2px dashed rgba(201,168,76,0.4);
+}
+.arrow-down-dashed::after {
+  content: '▼';
+  position: absolute;
+  bottom: 0;
+  color: var(--gold);
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+/* ═══ CHANNELS ROW ═══ */
+.channels-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.channel-card {
+  background: var(--bg3);
+  border: 1.5px solid;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 12px;
+}
+.channel-header {
+  padding: 7px 10px;
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.channel-body {
+  padding: 6px 10px 8px;
+}
+.channel-body p {
+  font-size: 10px;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+
+/* Waiter app highlight */
+.channel-waiter {
+  border-color: var(--green) !important;
+  box-shadow: 0 0 14px rgba(39,174,96,0.25);
+  position: relative;
+}
+.channel-waiter .channel-header {
+  background: rgba(39,174,96,0.15);
+  color: #2ecc71;
+}
+.waiter-badge {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  background: #2ecc71;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 900;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ═══ FUNNEL CONNECTOR ═══ */
+.funnel-wrap {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 32px;
+  margin: 0;
+}
+.funnel-line {
+  position: absolute;
+  top: 0;
+  left: 8.3%; right: 8.3%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.5), transparent);
+}
+.funnel-arrow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.funnel-arrow::before {
+  content: '';
+  width: 2px;
+  height: 24px;
+  background: rgba(201,168,76,0.6);
+}
+.funnel-arrow::after {
+  content: '▼';
+  color: var(--gold);
+  font-size: 10px;
+  line-height: 1;
+}
+
+/* ═══ ORDER ENGINE ═══ */
+.engine-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+.engine-box {
+  background: rgba(201,168,76,0.07);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 10px 24px;
+  text-align: center;
+  width: 680px;
+  box-shadow: 0 0 20px rgba(201,168,76,0.1);
+}
+.engine-box h3 {
+  font-size: 15px;
+  font-weight: 900;
+  color: var(--gold2);
+  margin-bottom: 4px;
+}
+.engine-box .lifecycle {
+  font-size: 10px;
+  color: var(--muted);
+  margin-bottom: 3px;
+  direction: ltr;
+  text-align: center;
+}
+.engine-box .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  margin-top: 5px;
+}
+.etag {
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.25);
+  color: var(--gold);
+  font-size: 9px;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* ═══ KITCHEN GRID ═══ */
+.kitchen-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.station-card {
+  border-radius: 11px;
+  overflow: hidden;
+  border: 1.8px solid;
+}
+.station-header {
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.station-header-inner { flex: 1; }
+.station-title {
+  font-size: 13px;
+  font-weight: 700;
+}
+.station-subtitle {
+  font-size: 9px;
+  color: rgba(255,255,255,0.55);
+  margin-top: 1px;
+}
+.kds-badge {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid currentColor;
+  border-radius: 5px;
+  padding: 3px 7px;
+  font-size: 9px;
+  font-weight: 700;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+/* Prep store */
+.prep-store {
+  margin: 8px;
+  border-radius: 8px;
+  border: 1.2px solid;
+  overflow: hidden;
+}
+.prep-store-header {
+  padding: 5px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.prep-store-body {
+  padding: 6px 10px 8px;
+}
+.bom-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.bom-item {
+  font-size: 9px;
+  color: #aaa;
+  padding: 2px 0;
+  padding-right: 10px;
+  position: relative;
+  line-height: 1.5;
+}
+.bom-item::before {
+  content: '◈';
+  position: absolute;
+  right: 0;
+  color: rgba(201,168,76,0.5);
+  font-size: 8px;
+  top: 3px;
+}
+.supply-note {
+  font-size: 8.5px;
+  color: var(--teal);
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px dashed rgba(23,162,184,0.2);
+  text-align: center;
+}
+
+/* ═══ HOT STATION ═══ */
+.st-hot { border-color: var(--hot); background: #170a0a; }
+.st-hot .station-header { background: rgba(192,57,43,0.25); color: #f1948a; }
+.st-hot .prep-store { border-color: rgba(192,57,43,0.35); background: rgba(192,57,43,0.04); }
+.st-hot .prep-store-header { background: rgba(192,57,43,0.12); color: var(--hot); }
+.st-hot .kds-badge { color: #f1948a; }
+
+/* ═══ GRILL STATION ═══ */
+.st-grill { border-color: var(--grill); background: #170e05; }
+.st-grill .station-header { background: rgba(230,126,34,0.22); color: #f5cba7; }
+.st-grill .prep-store { border-color: rgba(230,126,34,0.35); background: rgba(230,126,34,0.04); }
+.st-grill .prep-store-header { background: rgba(230,126,34,0.12); color: var(--grill); }
+.st-grill .kds-badge { color: #f5cba7; }
+
+/* ═══ FRY STATION ═══ */
+.st-fry { border-color: var(--fry); background: #160d05; }
+.st-fry .station-header { background: rgba(211,84,0,0.25); color: #f0b27a; }
+.st-fry .prep-store { border-color: rgba(211,84,0,0.35); background: rgba(211,84,0,0.04); }
+.st-fry .prep-store-header { background: rgba(211,84,0,0.12); color: var(--fry); }
+.st-fry .kds-badge { color: #f0b27a; }
+
+/* ═══ COLD STATION ═══ */
+.st-cold { border-color: var(--cold); background: #070f18; }
+.st-cold .station-header { background: rgba(41,128,185,0.22); color: #aed6f1; }
+.st-cold .prep-store { border-color: rgba(41,128,185,0.35); background: rgba(41,128,185,0.04); }
+.st-cold .prep-store-header { background: rgba(41,128,185,0.12); color: var(--cold); }
+.st-cold .kds-badge { color: #aed6f1; }
+
+/* ═══ PASTRY STATION ═══ */
+.st-pastry { border-color: var(--pastry); background: #0d0812; }
+.st-pastry .station-header { background: rgba(142,68,173,0.22); color: #d7bde2; }
+.st-pastry .prep-store { border-color: rgba(142,68,173,0.35); background: rgba(142,68,173,0.04); }
+.st-pastry .prep-store-header { background: rgba(142,68,173,0.12); color: var(--pastry); }
+.st-pastry .kds-badge { color: #d7bde2; }
+
+/* ═══ BAR STATION ═══ */
+.st-bar { border-color: var(--bar); background: #050f0d; }
+.st-bar .station-header { background: rgba(22,160,133,0.22); color: #a2d9ce; }
+.st-bar .prep-store { border-color: rgba(22,160,133,0.35); background: rgba(22,160,133,0.04); }
+.st-bar .prep-store-header { background: rgba(22,160,133,0.12); color: var(--bar); }
+.st-bar .kds-badge { color: #a2d9ce; }
+
+/* ═══ EXPO ═══ */
+.expo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+.expo-box {
+  background: rgba(201,168,76,0.06);
+  border: 2px solid var(--gold);
+  border-radius: 11px;
+  padding: 10px 28px;
+  text-align: center;
+  width: 620px;
+  box-shadow: 0 0 16px rgba(201,168,76,0.08);
+}
+.expo-box h3 { font-size: 14px; font-weight: 700; color: var(--gold2); margin-bottom: 3px; }
+.expo-box p { font-size: 10px; color: var(--muted); }
+
+/* ═══ OUTPUT ROW ═══ */
+.output-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 800px;
+  margin: 0 auto 6px;
+}
+.output-card {
+  border-radius: 10px;
+  border: 1.5px solid;
+  overflow: hidden;
+}
+.output-header {
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.output-body {
+  padding: 6px 14px 8px;
+}
+.output-body p { font-size: 10px; color: var(--muted); margin-bottom: 2px; }
+
+.out-dinein { border-color: var(--gold); background: #12110a; }
+.out-dinein .output-header { background: rgba(201,168,76,0.14); color: var(--gold2); }
+.out-delivery { border-color: var(--grill); background: #100c06; }
+.out-delivery .output-header { background: rgba(230,126,34,0.14); color: #f5cba7; }
+
+/* ═══ WAREHOUSE ═══ */
+.warehouse-box {
+  background: linear-gradient(180deg, #0c1820, #07101a);
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+.warehouse-header {
+  background: rgba(23,162,184,0.1);
+  padding: 10px 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(23,162,184,0.15);
+}
+.warehouse-header h3 {
+  font-size: 14px;
+  font-weight: 900;
+  color: #7ecfdb;
+  margin-bottom: 3px;
+}
+.warehouse-header p { font-size: 10px; color: var(--muted); }
+.warehouse-zones {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 10px;
+}
+.zone {
+  border-radius: 8px;
+  border: 1.2px solid;
+  overflow: hidden;
+}
+.zone-header {
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+}
+.zone-body {
+  padding: 6px 10px 8px;
+}
+.zone-body p { font-size: 9.5px; color: var(--muted); margin-bottom: 2px; }
+.zone-body small { font-size: 8.5px; color: #5a5048; }
+
+.zone-dry { border-color: rgba(241,196,15,0.25); background: rgba(241,196,15,0.04); }
+.zone-dry .zone-header { background: rgba(241,196,15,0.1); color: #f1c40f; }
+.zone-chill { border-color: rgba(41,128,185,0.25); background: rgba(41,128,185,0.04); }
+.zone-chill .zone-header { background: rgba(41,128,185,0.12); color: #aed6f1; }
+.zone-frozen { border-color: rgba(52,152,219,0.22); background: rgba(52,152,219,0.04); }
+.zone-frozen .zone-header { background: rgba(52,152,219,0.1); color: #85c1e9; }
+
+/* ═══ SUPPLY ARROWS ═══ */
+.supply-arrows-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 0 0 0;
+}
+.supply-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 0 2px;
+}
+.supply-col span {
+  font-size: 8px;
+  color: var(--teal);
+  opacity: 0.75;
+  margin-bottom: 2px;
+}
+.supply-arrow-line {
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(180deg, transparent, rgba(23,162,184,0.5));
+  position: relative;
+}
+.supply-arrow-line::after {
+  content: '▲';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--teal);
+  font-size: 8px;
+  opacity: 0.7;
+}
+</style>
+</head>
+<body>
+
+<div class="page-title">
+  <h1>🍽 مخطط نظام تشغيل المطعم الاحترافي</h1>
+  <p>قنوات الطلب ← محرك الطلبات ← المطابخ الفرعية + مخازن التحضير ← المخزن الرئيسي</p>
+</div>
+
+<!-- ═══ قنوات الطلب ═══ -->
+<div class="section-label">— قنوات الطلب —</div>
+<div class="channels-row">
+
+  <!-- 1. POS -->
+  <div class="channel-card" style="border-color:#6c3db5; background:#14102a;">
+    <div class="channel-header" style="background:rgba(108,61,181,0.2); color:#c3aee8;">
+      🖥 نقطة البيع POS
+    </div>
+    <div class="channel-body">
+      <p>تقسيم فاتورة • كوبونات</p>
+      <p>Offline • Loyalty ربط</p>
+      <p>EMV • Apple Pay • Mada</p>
+      <p>كورسينج • معدّلات</p>
+    </div>
+  </div>
+
+  <!-- 2. Waiter App ★ -->
+  <div class="channel-card channel-waiter" style="background:#0c1a0c;">
+    <div class="waiter-badge">★</div>
+    <div class="channel-header">
+      📲 تطبيق النادل
+    </div>
+    <div class="channel-body">
+      <p style="color:#a9dfbf;">Waiter / Server App</p>
+      <p>خريطة طاولات لحظية</p>
+      <p>تحديث 86 فوري</p>
+      <p>طلب حسب المقعد • Recall</p>
+    </div>
+  </div>
+
+  <!-- 3. Kiosk -->
+  <div class="channel-card" style="border-color:#27ae60; background:#0c1a0c;">
+    <div class="channel-header" style="background:rgba(39,174,96,0.18); color:#a9dfbf;">
+      🏧 كيوسك ذاتي
+    </div>
+    <div class="channel-body">
+      <p>+20-30% متوسط الفاتورة</p>
+      <p>AI Upsell • ADA متوافق</p>
+      <p>دفع مدمج • قسائم</p>
+      <p>Self-Service Kiosk</p>
+    </div>
+  </div>
+
+  <!-- 4. QR -->
+  <div class="channel-card" style="border-color:#2980b9; background:#080e18;">
+    <div class="channel-header" style="background:rgba(41,128,185,0.18); color:#aed6f1;">
+      📱 QR منيو
+    </div>
+    <div class="channel-body">
+      <p>PWA بلا تثبيت</p>
+      <p>رقم الطاولة من الكود</p>
+      <p>دفع لحظي • Qlub</p>
+      <p>QR Order &amp; Pay</p>
+    </div>
+  </div>
+
+  <!-- 5. Talabat -->
+  <div class="channel-card" style="border-color:#e67e22; background:#180e05;">
+    <div class="channel-header" style="background:rgba(230,126,34,0.18); color:#f5cba7;">
+      🛵 Talabat / Uber Eats
+    </div>
+    <div class="channel-body">
+      <p>Deliverect • UrbanPiper</p>
+      <p>Careem • HungerStation</p>
+      <p>+15-20% channel pricing</p>
+      <p>عمولة 25-35%</p>
+    </div>
+  </div>
+
+  <!-- 6. WhatsApp -->
+  <div class="channel-card" style="border-color:#25d366; background:#050f08;">
+    <div class="channel-header" style="background:rgba(37,211,102,0.15); color:#a9dfbf;">
+      💬 واتساب / Chatbot
+    </div>
+    <div class="channel-body">
+      <p>Arabot • WATI • BotR</p>
+      <p>بلا عمولة • بلا تطبيق</p>
+      <p>Product Catalog مباشر</p>
+      <p>ربط فوري بـ POS</p>
+    </div>
+  </div>
+
+</div><!-- end channels-row -->
+
+<!-- FUNNEL CONNECTOR -->
+<div class="funnel-wrap">
+  <div class="funnel-line"></div>
+  <div class="funnel-arrow"></div>
+</div>
+
+<!-- ═══ محرك الطلبات ═══ -->
+<div class="engine-wrap">
+  <div class="engine-box">
+    <h3>⚡ محرك الطلبات — Order Engine / POS Core</h3>
+    <div class="lifecycle">منشأ ← تحقق ← مقبول ← موجَّه ← قيد التحضير ← جاهز ← تسليم ← مدفوع ← مغلق</div>
+    <div class="tags">
+      <span class="etag">تحقق المخزون</span>
+      <span class="etag">تطبيق المعدّلات</span>
+      <span class="etag">Idempotency Key</span>
+      <span class="etag">توجيه للمحطة</span>
+      <span class="etag">86 Broadcast فوري</span>
+      <span class="etag">مزامنة جميع القنوات</span>
+    </div>
+  </div>
+</div>
+
+<!-- ARROW DOWN -->
+<div class="arrow-down-dashed"></div>
+
+<!-- ═══ المطابخ الفرعية — الصف الأول ═══ -->
+<div class="section-label" style="margin-top:4px;">— المطابخ الفرعية — الصف الأول —</div>
+<div class="kitchen-grid">
+
+  <!-- HOT LINE -->
+  <div class="station-card st-hot">
+    <div class="station-header">
+      <div class="station-header-inner">
+        <div class="station-title">🔥 المطبخ الحار — Hot Line</div>
+        <div class="station-subtitle">صلصات • سوتيه • بروتينات مقلية • حساء</div>
+      </div>
+      <div class="kds-badge">📺 KDS</div>
+    </div>
+    <div class="prep-store">
+      <div class="prep-store-header">📦 مخزن التحضير — الحار</div>
+      <div class="prep-store-body">
+        <div class="bom-label">وصفات نموذجية (BOM):</div>
+        <div class="bom-item">برجر = خبز (80ج) + لحم مفروم (150ج) + جبن (30ج) + صلصة + خس</div>
+        <div class="bom-item">باستا بولونيز = فيتوتشيني (120ج) + لحم (90ج) + صلصة طماطم (80مل)</div>
+        <div class="bom-item">ريزوتو زعفران = أرز أربوريو (90ج) + مرق (220مل) + بارميزان (25ج)</div>
+        <div class="bom-item">شوربة بصل = مرق (300مل) + بصل محمّر (80ج) + خبز + جبن</div>
+        <div class="bom-item">دجاج بالقشطة = صدر (180ج) + قشطة (60مل) + ثوم + توابل</div>
+        <div class="supply-note">↑ يستلم: مبردة + جافة + مجمدة | FIFO | خصم فوري بكل بيعة</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRILL -->
+  <div class="station-card st-grill">
+    <div class="station-header">
+      <div class="station-header-inner">
+        <div class="station-title">🥩 الشواء — Grill Station</div>
+        <div class="station-subtitle">لحوم • شرائح • كباب • دجاج مشوي</div>
+      </div>
+      <div class="kds-badge">📺 KDS</div>
+    </div>
+    <div class="prep-store">
+      <div class="prep-store-header">📦 مخزن التحضير — الشواء</div>
+      <div class="prep-store-body">
+        <div class="bom-label">وصفات نموذجية (BOM):</div>
+        <div class="bom-item">ريبآي = لحم Wagyu (300ج+yield 85%) + ملح خشن + ثوم + روزماري</div>
+        <div class="bom-item">دجاج مشوي = صدر (200ج) + تتبيلة 12ساعة (زيت+ليمون+بهارات)</div>
+        <div class="bom-item">كباب مشوي = لحم مفروم (120ج) + بصل (30ج) + بقدونس + كمون</div>
+        <div class="bom-item">سالمون = فيليه (180ج) + ليمون + أعشاب + زيت زيتون</div>
+        <div class="bom-item">خضار مشوية = فلفل+بادنجان+كوسا (150ج) + زيت + ثوم</div>
+        <div class="supply-note">↑ يستلم: مبردة + مجمدة IQF | Yield محتسب | FEFO للحوم</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRY -->
+  <div class="station-card st-fry">
+    <div class="station-header">
+      <div class="station-header-inner">
+        <div class="station-title">🍟 القلاية — Fry Station</div>
+        <div class="station-subtitle">مقليات • بطاطا • دجاج مقلي • جمبري</div>
+      </div>
+      <div class="kds-badge">📺 KDS</div>
+    </div>
+    <div class="prep-store">
+      <div class="prep-store-header">📦 مخزن التحضير — القلاية</div>
+      <div class="prep-store-body">
+        <div class="bom-label">وصفات نموذجية (BOM):</div>
+        <div class="bom-item">بطاطا مقلية = شرائح (200ج) + دقيق الذرة (10ج) + زيت نباتي</div>
+        <div class="bom-item">دجاج مقلي = قطع (180ج) + دقيق متبّل (40ج) + بيض (1) + بانكو</div>
+        <div class="bom-item">جوانح = 6 قطع (240ج) + تتبيلة + دقيق + صلصة حارة</div>
+        <div class="bom-item">كاملي جمبري = جمبري (120ج+yield 70%) + عجينة تمبورا</div>
+        <div class="bom-item">حلقات بصل = بصل (150ج) + دقيق + بيرة (80مل) + توابل</div>
+        <div class="supply-note">↑ يستلم: مجمدة + جافة | مراقبة حرارة الزيت | FIFO</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end row1 -->
+
+<!-- ═══ المطابخ الفرعية — الصف الثاني ═══ -->
+<div class="section-label" style="margin-top:4px;">— الصف الثاني —</div>
+<div class="kitchen-grid" style="margin-bottom:8px;">
+
+  <!-- COLD / GARDE MANGER -->
+  <div class="station-card st-cold">
+    <div class="station-header">
+      <div class="station-header-inner">
+        <div class="station-title">🥗 البارد — Garde Manger</div>
+        <div class="station-subtitle">سلطات • أطباق باردة • شارقتري</div>
+      </div>
+      <div class="kds-badge">📺 KDS</div>
+    </div>
+    <div class="prep-store">
+      <div class="prep-store-header">📦 مخزن التحضير — البارد</div>
+      <div class="prep-store-body">
+        <div class="bom-label">وصفات نموذجية (BOM):</div>
+        <div class="bom-item">سلطة قيصر = خس (80ج) + كروتون (20ج) + بارميزان (15ج) + صلصة</div>
+        <div class="bom-item">سيفيتشي = سمك طازج (100ج) + ليمون (30مل) + بصل + كزبرة</div>
+        <div class="bom-item">حمص = حمص مطبوخ (150ج) + طحينة (30ج) + ليمون + ثوم</div>
+        <div class="bom-item">لوح جبن = 5 أنواع جبن + عسل + مكسرات + خبز محمص</div>
+        <div class="bom-item">تارتار لحم = لحم نيء (120ج) + كبر + خردل + صفار بيض</div>
+        <div class="supply-note">↑ يستلم: طازجة + مبردة | منطقة 0-4°م | FEFO صارم</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASTRY -->
+  <div class="station-card st-pastry">
+    <div class="station-header">
+      <div class="station-header-inner">
+        <div class="station-title">🍰 المعجنات — Pastry Kitchen</div>
+        <div class="station-subtitle">حلويات • مخبوزات • خبز يومي • pre-dessert</div>
+      </div>
+      <div class="kds-badge">📺 KDS</div>
+    </div>
+    <div class="prep-store">
+      <div class="prep-store-header">📦 مخزن التحضير — المعجنات</div>
+      <div class="prep-store-body">
+        <div class="bom-label">وصفات نموذجية (BOM):</div>
+        <div class="bom-item">كريم بروليه = كريمة (150مل) + صفار بيض (3) + سكر (60ج) + فانيليا</div>
+        <div class="bom-item">موس شوكولاتة = شوكولاتة (80ج) + كريمة (120مل) + بيض + سكر</div>
+        <div class="bom-item">خبز يومي = دقيق (500ج) + خميرة (7ج) + ملح + ماء (320مل)</div>
+        <div class="bom-item">سوربيه موسمي = فاكهة (250ج) + سكر (80ج) + عصير ليمون</div>
+        <div class="bom-item">بسبوسة = سميد (200ج) + سكر (100ج) + لوز (50ج) + شربات</div>
+        <div class="supply-note">↑ مطبخ مستقل 16-18°م | جافة + ألبان + بيض | FEFO</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BAR -->
+  <div class="station-card st-bar">
+    <div class="station-header">
+      <div class="station-header-inner">
+        <div class="station-title">🍹 البار — Bar Station</div>
+        <div class="station-subtitle">مشروبات • موكتيل • عصائر طازجة • قهوة</div>
+      </div>
+      <div class="kds-badge">📺 KDS</div>
+    </div>
+    <div class="prep-store">
+      <div class="prep-store-header">📦 مخزن التحضير — البار</div>
+      <div class="prep-store-body">
+        <div class="bom-label">وصفات نموذجية (BOM):</div>
+        <div class="bom-item">موهيتو = نعناع (10ج) + ليمون (30مل) + سكر (15ج) + ماء فوار</div>
+        <div class="bom-item">عصير برتقال = 3 برتقالات (400ج + yield 45%) + ثلج (100ج)</div>
+        <div class="bom-item">قهوة مختصة = حبوب مطحونة (18ج) + ماء 93° + حليب (120مل)</div>
+        <div class="bom-item">ليموناضة = ليمون (80مل) + نعناع + سكر قصب + صودا</div>
+        <div class="bom-item">لاتيه = espresso double (36مل) + حليب مبخّر (180مل) + رغوة</div>
+        <div class="supply-note">↑ ثلاجة بار مستقلة 0-4°م | مشروبات + ألبان + فاكهة</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end row2 -->
+
+<!-- ARROW DOWN TO EXPO -->
+<div class="arrow-down">▼</div>
+
+<!-- ═══ المُسرّع ═══ -->
+<div class="expo-wrap">
+  <div class="expo-box">
+    <h3>📋 المُسرّع — Expo / Expediter Screen</h3>
+    <p>يجمع أطباق الطاولة الواحدة من جميع المحطات • يتحقق الجودة • يعطي إشارة الخروج للنادل</p>
+    <p style="margin-top:3px; font-size:9px; color:#5a5048;">شاشة Expo: ✓ حار + ✓ شواء + ✓ بارد = جاهز للتسليم | Bump شامل | تنبيه تأخير</p>
+  </div>
+</div>
+
+<!-- ARROW TO OUTPUT -->
+<div class="arrow-down">▼</div>
+
+<!-- ═══ المخرجات ═══ -->
+<div class="output-row">
+  <div class="output-card out-dinein">
+    <div class="output-header">🪑 الضيف في الصالة — Dine-In</div>
+    <div class="output-body">
+      <p>النادل يُقدّم الطلب • دفع (Mada / Visa / نقد)</p>
+      <p>ZATCA فاتورة إلكترونية ← GL ← P&amp;L</p>
+      <p>RevPASH • دوران الطاولة • تقرير Z</p>
+    </div>
+  </div>
+  <div class="output-card out-delivery">
+    <div class="output-header">🛵 التوصيل — Delivery</div>
+    <div class="output-body">
+      <p>تغليف (Packaging Bag) ← سائق ← تتبع GPS</p>
+      <p>تسوية 3-7 أيام • عمولة ← AP • Principal vs Agent</p>
+      <p>تقييم العميل ← CRM ← تحليل القناة</p>
+    </div>
+  </div>
+</div>
+
+<!-- SUPPLY ARROWS UP -->
+<div class="supply-arrows-row">
+  <div class="supply-col">
+    <span>إمداد مخازن التحضير</span>
+    <div class="supply-arrow-line"></div>
+  </div>
+  <div class="supply-col">
+    <span>إمداد مخازن التحضير</span>
+    <div class="supply-arrow-line"></div>
+  </div>
+  <div class="supply-col">
+    <span>إمداد مخازن التحضير</span>
+    <div class="supply-arrow-line"></div>
+  </div>
+</div>
+
+<!-- ═══ المخزن الرئيسي ═══ -->
+<div class="warehouse-box">
+  <div class="warehouse-header">
+    <h3>🏭 المخزن الرئيسي — مخزن المواد الأولية | Raw Materials Warehouse</h3>
+    <p>يُمد جميع مخازن التحضير الفرعية الستة • FIFO / FEFO • 3-Way Match (PO × GRN × Invoice) • تنبيهات لحظية • ABC جرد دوري</p>
+  </div>
+  <div class="warehouse-zones">
+
+    <div class="zone zone-dry">
+      <div class="zone-header">📦 الجافة — Dry Storage (18-22°م)</div>
+      <div class="zone-body">
+        <p>دقيق • سكر • أرز • معكرونة • زيوت • بهارات</p>
+        <p>معلبات • مكسرات • مشروبات معبأة • توابل</p>
+        <small>جرد C-Items ربع سنوي | A-Items دوري حسب الدوران</small>
+      </div>
+    </div>
+
+    <div class="zone zone-chill">
+      <div class="zone-header">❄ المبردة — Chilled (0-4°م)</div>
+      <div class="zone-body">
+        <p>لحوم طازجة • سمك • ألبان • جبن • بيض</p>
+        <p>خضار وفاكهة طازجة • أعشاب • صلصات جاهزة</p>
+        <small>FEFO صارم | IoT تتبع حرارة | A-Items يومياً</small>
+      </div>
+    </div>
+
+    <div class="zone zone-frozen">
+      <div class="zone-header">🧊 المجمدة — Frozen (-18°م)</div>
+      <div class="zone-body">
+        <p>لحوم IQF • جمبري • دجاج مجمد • خضار مجمدة</p>
+        <p>سوربيه جاهز • عجين مُجمَّد • مرق أساس مجمد</p>
+        <small>لا إعادة تجميد | Defrost cycle مُدار | وزن الاستلام</small>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

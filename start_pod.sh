@@ -7,6 +7,7 @@ set -e
 
 REPO_DIR="/workspace/AI-Waiter"
 MODEL="tiiuae/Falcon-H1-7B-Instruct"
+SIMPLE_MODEL="${SIMPLE_MODEL:-}"
 
 echo "================================================"
 echo "  AI Waiter — Pod Startup"
@@ -52,6 +53,7 @@ tmux new-session -d -s vllm \
         --port 8001 \
         --host 0.0.0.0 \
         --max-model-len 4096 \
+        --enable-prefix-caching \
         2>&1 | tee /workspace/vllm.log"
 
 echo "  Waiting for vLLM to load (this takes 2-5 minutes)..."

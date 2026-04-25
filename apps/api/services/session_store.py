@@ -7,16 +7,19 @@ Natural upgrade path: replace this module's internals with Redis.
 from __future__ import annotations
 
 from apps.api.config import settings
+from apps.api.models.order import OrderConfirmation, WaiterCallNotification
 from apps.api.models.session import Cart, CartItem, ChatMessage, Session
 
 # Module-level singletons — live for the process lifetime
 _sessions: dict[str, Session] = {}
+_orders: list[OrderConfirmation] = []
+_waiter_calls: list[WaiterCallNotification] = []
 
 
 # ── Session management ────────────────────────────────────────────────────────
 
-def create_session() -> Session:
-    s = Session()
+def create_session(table_number: int | None = None) -> Session:
+    s = Session(table_number=table_number)
     _sessions[s.session_id] = s
     return s
 
@@ -67,3 +70,41 @@ def get_cart(session_id: str) -> Cart:
 
 def clear_cart(session_id: str) -> None:
     require_session(session_id).cart.items.clear()
+
+
+def set_table_number(session_id: str, table_number: int | None) -> Session:
+    session = require_session(session_id)
+    session.table_number = table_number
+    return session
+
+
+def get_table_number(session_id: str) -> int | None:
+    return require_session(session_id).table_number
+
+
+def add_order(order: OrderConfirmation) -> OrderConfirmation:
+    _orders.insert(0, order)
+    return order
+
+
+def list_orders() -> list[OrderConfirmation]:
+    return list(_orders)
+
+
+def mark_all_orders_seen() -> None:
+    for order in _orders:
+        order.seen_by_admin = True
+
+
+def add_waiter_call(call: WaiterCallNotification) -> WaiterCallNotification:
+    _waiter_calls.insert(0, call)
+    return call
+
+
+def list_waiter_calls() -> list[WaiterCallNotification]:
+    return list(_waiter_calls)
+
+
+def mark_all_waiter_calls_seen() -> None:
+    for call in _waiter_calls:
+        call.seen_by_admin = True

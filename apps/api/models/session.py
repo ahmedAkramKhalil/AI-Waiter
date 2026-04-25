@@ -34,6 +34,7 @@ class Session(BaseModel):
     session_id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     history: list[ChatMessage] = Field(default_factory=list)
     cart: Optional[Cart] = None
+    table_number: Optional[int] = None
 
     def model_post_init(self, __context):  # noqa: ANN001
         if self.cart is None:
