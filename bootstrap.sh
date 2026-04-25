@@ -71,7 +71,7 @@ echo "  .env written"
 
 banner "[4/6] Installing Python deps"
 pip install -q --upgrade pip
-pip install -q -e . -r apps/api/requirements.txt
+pip install -q -e . -r apps/api/requirements-vllm.txt
 
 banner "[5/6] Ingesting menu into embedded Qdrant"
 python -m apps.api.scripts.ingest_menu

@@ -1,0 +1,17 @@
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+sse-starlette>=1.8.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+httpx>=0.27.0
+qdrant-client>=1.7.0
+python-multipart>=0.0.9
+
+# vLLM cloud hosts usually already ship with CUDA, torch, and vLLM installed.
+# Keep these constraints compatible with modern vLLM images instead of forcing
+# older local-dev pins that downgrade transformers/tokenizers/numpy.
+numpy>=2,<2.6
+transformers>=4.56.0,<5
+tokenizers>=0.21.1
+sentence-transformers>=3.3,<4
+huggingface_hub>=0.28,<1

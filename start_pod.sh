@@ -34,7 +34,7 @@ fi
 echo ""
 echo "[2/4] Installing Python dependencies..."
 cd "$REPO_DIR"
-pip install -q -e . -r apps/api/requirements.txt
+pip install -q -e . -r apps/api/requirements-vllm.txt
 echo "  ✓ Dependencies installed"
 
 # ── 3. Ingest menu into Qdrant ───────────────────────────────────

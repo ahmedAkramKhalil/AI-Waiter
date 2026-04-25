@@ -102,7 +102,7 @@ EOF
 banner "Installing Python dependencies"
 cd "$REPO_DIR"
 "$PIP_BIN" install -q --upgrade pip
-"$PIP_BIN" install -q -e . -r apps/api/requirements.txt
+"$PIP_BIN" install -q -e . -r apps/api/requirements-vllm.txt
 
 banner "Ingesting menu into embedded Qdrant"
 "$PYTHON_BIN" -m apps.api.scripts.ingest_menu

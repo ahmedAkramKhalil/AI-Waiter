@@ -11,15 +11,14 @@ This project runs best on Vast when you treat the GPU box as the **backend host*
 
 ## Best Vast template
 
-For **this full project**, the best choice is usually a **PyTorch template**, not a vLLM-only template.
+If you are **already using a Vast vLLM template**, keep it.
 
-Why:
+That is completely fine for this project as long as you do **not** reinstall the
+older local-dev ML stack from `apps/api/requirements.txt`.
 
-- this repo needs more than model serving
-- it also runs FastAPI, embedded Qdrant, ingestion, and optionally the web UI
-- the PyTorch template gives you full control over processes and ports
-
-Use a vLLM-specific template only if you want **model serving alone** and plan to run the app layer somewhere else.
+This repo now includes `apps/api/requirements-vllm.txt` specifically for cloud
+hosts running modern `vLLM`, so the backend dependencies stay compatible with
+the preinstalled `vLLM` environment.
 
 ## Recommended ports
 
@@ -34,7 +33,7 @@ Keep private if possible:
 
 ## Recommended Vast instance setup
 
-- Template: `vastai/pytorch`
+- Template: your current `vLLM` template is okay
 - Launch mode: `SSH`
 - GPU: choose based on your model size
   - `RTX 4090` is usually enough for `Falcon-H1-7B-Instruct`
@@ -73,6 +72,18 @@ If your model needs a Hugging Face token:
 HF_TOKEN=hf_xxx \
 MODEL=tiiuae/Falcon-H1-7B-Instruct \
 bash vast_provision.sh
+```
+
+The script installs:
+
+```text
+apps/api/requirements-vllm.txt
+```
+
+and intentionally avoids the older local-dev ML pins in:
+
+```text
+apps/api/requirements.txt
 ```
 
 ## 3. Verify services
